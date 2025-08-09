@@ -1,1 +1,2 @@
 # Vítej ^w^
+Vítej na mé zaimprovizované stránce, kde nastřádávám a zveřejňuji různé projekty, které jsem vytvořil a o které jsem se chtěl se světem podělit. Můžete tu nalézt všechno možné od mých vlastních karetních her, po expanze a proxy karty do karetních her, které mě baví, různé videoherní modifikace a vlastně všechno možné <3 Doufám, že tu v tomhle chaosu najdete alespoň něco co vás zaujme :)
