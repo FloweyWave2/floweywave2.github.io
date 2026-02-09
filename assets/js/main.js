@@ -11,13 +11,13 @@ if (container && viewSelect) {
       cardEl.className = `character-card ${view}`;
 
       cardEl.innerHTML = `
-        <img src="${card.image}" alt="${card.name}">
-        <div class="card-info">
-          <span class="name">${card.name}</span>
-          <span>❤️ ${card.hp}</span>
-          <span>${card.set}</span>
-        </div>
-      `;
+  <img src="${card.image}" alt="${card.name}">
+
+  <span class="name">${card.name}</span>
+  <span class="hp">❤️ ${card.hp}</span>
+  <span class="set">${card.set}</span>
+  <span class="type">${card.type}</span>
+`;
 
       cardEl.addEventListener("click", () => {
         window.location.href = `bang/${slugify(card.name)}.html`;
