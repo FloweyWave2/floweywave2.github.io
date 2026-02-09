@@ -1,33 +1,49 @@
-const container = document.getElementById("character-cards");
-const viewSelect = document.getElementById("view-select");
+document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("character-cards");
+  const viewSelect = document.getElementById("view-select");
 
-if (container && viewSelect) {
-  character_cards.forEach(card => {
-    const cardEl = document.createElement("div");
-    cardEl.className = `character-card ${view}`;
-
-    cardEl.innerHTML = `
-      <img src="${card.image}" alt="${card.name}">
-      <span class="name">${card.name}</span>
-      <span class="hp">❤️ ${card.hp}</span>
-      <span class="set">${card.set}</span>
-      <span class="type">${card.type || ""}</span>
-    `;
-
-    cardEl.addEventListener("click", () => {
-      window.location.href = `bang/${slugify(card.name)}.html`;
-    });
-
-    container.appendChild(cardEl);
-  });
+  if (!container || !window.character_cards) {
+    console.error("Missing container or card data");
+    return;
   }
 
-  viewSelect.addEventListener("change", e => {
-    renderCards(e.target.value);
-  });
+  function renderCards(view) {
+    container.innerHTML = "";
+    container.className = view + "-view";
+
+    character_cards.forEach(card => {
+      const cardEl = document.createElement("div");
+      cardEl.className = `character-card ${view}`;
+
+      if (view === "grid") {
+        cardEl.innerHTML = `
+          <img src="${card.image}" alt="${card.name}">
+        `;
+      } else {
+        cardEl.innerHTML = `
+          <span class="name">${card.name}</span>
+          <span class="hp">❤️ ${card.hp}</span>
+          <span class="set">${card.set}</span>
+          <span class="type">${card.type || ""}</span>
+        `;
+      }
+
+      cardEl.addEventListener("click", () => {
+        window.location.href = `bang/${slugify(card.name)}.html`;
+      });
+
+      container.appendChild(cardEl);
+    });
+  }
+
+  if (viewSelect) {
+    viewSelect.addEventListener("change", e => {
+      renderCards(e.target.value);
+    });
+  }
 
   renderCards("grid");
-}
+});
 
 function slugify(text) {
   return text
