@@ -92,26 +92,33 @@ body {
 #character-cards.list-view {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .character-card.list {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  padding: 8px 12px;
-  background: #0f172a;
-  border-radius: 8px;
+  grid-template-columns:
+    2.5fr   /* name */
+    0.8fr   /* HP */
+    1fr     /* set */
+    1fr;    /* type */
+
+  align-items: center;
+  padding: 10px 14px;
+
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
   cursor: pointer;
+  transition: background 0.15s ease;
 }
 
 .character-card.list:hover {
-  background: #1e293b;
+  background: #eef2f7;
 }
 
 .character-card.list img {
   display: none;
 }
 
-.character-card.list .name {
-  font-weight: 600;
-}
