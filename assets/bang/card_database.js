@@ -1,4 +1,4 @@
-const character_cards = [
+const card_database = [
   {
     id: 1,
     name: "Agnes Walker",
