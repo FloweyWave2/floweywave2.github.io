@@ -1,39 +1,13 @@
 ---
 layout: default
 title: Bang
+description: ""
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>PROJECTS</title>
-</head>
-<body>
-
-<section class="page-header">
+<section class="bang-header">
   <h1>BANG! – Character Cards</h1>
   <p>Complete character overview and filtering</p>
 </section>
-
-<div id="list-view-container">
-  <div class="list-header">
-    <span>Name</span>
-    <span>HP</span>
-    <span>Set</span>
-    <span>Type</span>
-  </div>
-  <section id="character-cards" class="list-view"></section>
-</div>
-
-<section id="character-cards"></section>
-
-<h2>This is bang bang gůd šit!</h2>
-<p>This is my first GitHub Pages site.</p>
-
-<a href="bang.html">
-  <img src="images/logo_bang.png" class="profile-img">
-</a>
 
 <div class="view-controls">
   <label for="view-select">View:</label>
@@ -43,8 +17,17 @@ title: Bang
   </select>
 </div>
 
-<section id="character-cards" class="grid-view"></section>
+<div id="list-view-container">
+  <div class="list-header">
+    <span>Name</span>
+    <span>HP</span>
+    <span>Set</span>
+    <span>Type</span>
+  </div>
+
+  <!-- SINGLE, CORRECT DATABASE CONTAINER -->
+  <section id="character-cards" class="grid-view"></section>
+</div>
 
 <script src="assets/bang/character_cards.js"></script>
 <script src="assets/js/main.js"></script>
-</body>
