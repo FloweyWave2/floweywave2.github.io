@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Bang
-description: ""
 ---
 
 <section class="bang-header">
@@ -17,17 +16,16 @@ description: ""
   </select>
 </div>
 
-<div id="list-view-container">
-  <div class="list-header">
-    <span>Name</span>
-    <span>HP</span>
-    <span>Set</span>
-    <span>Type</span>
-  </div>
-
-  <!-- SINGLE, CORRECT DATABASE CONTAINER -->
-  <section id="character-cards" class="grid-view"></section>
+<!-- List header (hidden in grid view via CSS) -->
+<div id="list-header" class="list-header">
+  <span>Name</span>
+  <span>HP</span>
+  <span>Set</span>
+  <span>Type</span>
 </div>
+
+<!-- SINGLE database container -->
+<section id="character-cards"></section>
 
 <script src="assets/bang/character_cards.js"></script>
 <script src="assets/js/main.js"></script>
