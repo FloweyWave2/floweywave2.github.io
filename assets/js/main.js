@@ -1,4 +1,4 @@
-const container = document.getElementById("character-cards");
+const container = document.getElementById("card_database");
 const header = document.getElementById("list-header");
 const viewSelect = document.getElementById("view-select");
 
@@ -10,8 +10,8 @@ function renderCards(view) {
 
   character_cards.forEach(card => {
     const cardEl = document.createElement("a");
-    cardEl.href = `cards/${card.id}.html`;
-    cardEl.className = `character-card ${view}`;
+    cardEl.href = `cards/${card.name}.html`;
+    cardEl.className = `card ${view}`;
 
     cardEl.innerHTML = `
       <img src="${card.image}" alt="${card.name}">
