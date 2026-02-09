@@ -122,3 +122,22 @@ body {
   display: none;
 }
 
+.character-card.list .name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.character-card.list .hp {
+  font-weight: 500;
+  color: #dc2626; /* nice red heart */
+}
+
+.character-card.list .set {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.character-card.list .type {
+  font-size: 0.9rem;
+  color: #0369a1;
+}
