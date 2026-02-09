@@ -2,29 +2,24 @@ const container = document.getElementById("character-cards");
 const viewSelect = document.getElementById("view-select");
 
 if (container && viewSelect) {
-  function renderCards(view) {
-    container.innerHTML = "";
-    container.className = view + "-view";
+  character_cards.forEach(card => {
+    const cardEl = document.createElement("div");
+    cardEl.className = `character-card ${view}`;
 
-    character_cards.forEach(card => {
-      const cardEl = document.createElement("div");
-      cardEl.className = `character-card ${view}`;
+    cardEl.innerHTML = `
+      <img src="${card.image}" alt="${card.name}">
+      <span class="name">${card.name}</span>
+      <span class="hp">❤️ ${card.hp}</span>
+      <span class="set">${card.set}</span>
+      <span class="type">${card.type || ""}</span>
+    `;
 
-      cardEl.innerHTML = `
-  <img src="${card.image}" alt="${card.name}">
-
-  <span class="name">${card.name}</span>
-  <span class="hp">❤️ ${card.hp}</span>
-  <span class="set">${card.set}</span>
-  <span class="type">${card.type || ""}</span>
-`;
-
-      cardEl.addEventListener("click", () => {
-        window.location.href = `bang/${slugify(card.name)}.html`;
-      });
-
-      container.appendChild(cardEl);
+    cardEl.addEventListener("click", () => {
+      window.location.href = `bang/${slugify(card.name)}.html`;
     });
+
+    container.appendChild(cardEl);
+  });
   }
 
   viewSelect.addEventListener("change", e => {
