@@ -141,3 +141,12 @@ body {
   font-size: 0.9rem;
   color: #0369a1;
 }
+
+.list-header {
+  display: grid;
+  grid-template-columns: 2.5fr 0.8fr 1fr 1fr;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+}
