@@ -142,6 +142,13 @@ body {
   color: #0369a1;
 }
 
+#list-view-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Header grid */
 .list-header {
   display: grid;
   grid-template-columns: 2.5fr 0.8fr 1fr 1fr;
@@ -149,4 +156,19 @@ body {
   font-size: 0.85rem;
   font-weight: 600;
   color: #64748b;
+  border-bottom: 1px solid #cbd5e1;
+  background: #f1f5f9;
+}
+
+/* List items grid (same columns) */
+.character-card.list {
+  display: grid;
+  grid-template-columns: 2.5fr 0.8fr 1fr 1fr;
+  align-items: center;
+  padding: 10px 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s ease;
 }
