@@ -2,6 +2,27 @@
 ---
 
 @import "{{ site.theme }}";
+
+/* Kill Cayman theme header */
+.page-header {
+  display: none !important;
+}
+
+/* Custom Bang header */
+.bang-header {
+  margin: 40px 0 24px;
+}
+
+.bang-header h1 {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.bang-header p {
+  color: #64748b;
+  margin: 0;
+}
+
 body {
   font-size: 16px;      /* or 14px if you want smaller */
   font-family: system-ui, -apple-system, sans-serif;
