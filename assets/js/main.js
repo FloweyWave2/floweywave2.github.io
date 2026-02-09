@@ -16,7 +16,7 @@ if (container && viewSelect) {
   <span class="name">${card.name}</span>
   <span class="hp">❤️ ${card.hp}</span>
   <span class="set">${card.set}</span>
-  <span class="type">${card.type}</span>
+  <span class="type">${card.type || ""}</span>
 `;
 
       cardEl.addEventListener("click", () => {
