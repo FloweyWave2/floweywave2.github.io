@@ -64,3 +64,27 @@ body {
 #character-cards {
   margin-top: 24px;
 }
+
+#character-cards.grid-view {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.character-card.grid {
+  cursor: pointer;
+}
+
+.character-card.grid img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.character-card.grid:hover img {
+  transform: scale(1.04);
+}
+
+.character-card.grid .card-info {
+  display: none;
+}
