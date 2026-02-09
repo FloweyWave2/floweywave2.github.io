@@ -1,54 +1,33 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("character-cards");
-  const viewSelect = document.getElementById("view-select");
+const container = document.getElementById("character-cards");
+const header = document.getElementById("list-header");
+const viewSelect = document.getElementById("view-select");
 
-  if (!container || !window.character_cards) {
-    console.error("Missing container or card data");
-    return;
-  }
+function renderCards(view) {
+  container.innerHTML = "";
 
-  function renderCards(view) {
-    container.innerHTML = "";
-    container.className = view + "-view";
+  container.className = view === "list" ? "list-view" : "grid-view";
+  header.classList.toggle("hidden", view !== "list");
 
-    character_cards.forEach(card => {
-      const cardEl = document.createElement("div");
-      cardEl.className = `character-card ${view}`;
+  character_cards.forEach(card => {
+    const cardEl = document.createElement("a");
+    cardEl.href = `cards/${card.id}.html`;
+    cardEl.className = `character-card ${view}`;
 
-      if (view === "grid") {
-        cardEl.innerHTML = `
-          <img src="${card.image}" alt="${card.name}">
-        `;
-      } else {
-        cardEl.innerHTML = `
-          <span class="name">${card.name}</span>
-          <span class="hp">❤️ ${card.hp}</span>
-          <span class="set">${card.set}</span>
-          <span class="type">${card.type || ""}</span>
-        `;
-      }
+    cardEl.innerHTML = `
+      <img src="${card.image}" alt="${card.name}">
 
-      cardEl.addEventListener("click", () => {
-        window.location.href = `bang/${slugify(card.name)}.html`;
-      });
+      <span class="name">${card.name}</span>
+      <span class="hp">❤️ ${card.hp}</span>
+      <span class="set">${card.set}</span>
+      <span class="type">${card.type ?? "Postava"}</span>
+    `;
 
-      container.appendChild(cardEl);
-    });
-  }
+    container.appendChild(cardEl);
+  });
+}
 
-  if (viewSelect) {
-    viewSelect.addEventListener("change", e => {
-      renderCards(e.target.value);
-    });
-  }
-
-  renderCards("grid");
+viewSelect.addEventListener("change", e => {
+  renderCards(e.target.value);
 });
 
-function slugify(text) {
-  return text
-    .toLowerCase()
-    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
+renderCards("grid");
