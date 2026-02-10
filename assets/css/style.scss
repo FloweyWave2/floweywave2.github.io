@@ -3,7 +3,7 @@
 @import "{{ site.theme }}";
 
 /* =====================
-   BASE
+   BASE LAYOUT
 ===================== */
 
 body {
@@ -37,7 +37,7 @@ body {
 }
 
 /* =====================
-   GRID (IMAGE) VIEW
+   IMAGE (GRID) VIEW
 ===================== */
 
 #character-cards.grid-view {
@@ -52,17 +52,13 @@ body {
 
 .character-card.grid img {
   width: 100%;
+  display: block;
   border-radius: 12px;
   transition: transform 0.2s ease;
 }
 
 .character-card.grid:hover img {
   transform: scale(1.04);
-}
-
-/* Hide all text in image view */
-.character-card.grid .card-info {
-  display: none;
 }
 
 /* =====================
@@ -75,24 +71,31 @@ body {
   gap: 6px;
 }
 
-/* Header row */
-.list-header {
+/* Header + rows share the same grid */
+.list-header,
+.character-card.list {
   display: grid;
-  grid-template-columns: 2.5fr 0.8fr 1fr 1fr;
-  padding: 6px 14px;
+  grid-template-columns:
+    2.5fr   /* Jméno */
+    0.8fr   /* HP */
+    1fr     /* Sada */
+    1fr;    /* Typ */
+
+  align-items: center;
+  padding: 10px 14px;
+}
+
+/* Header styling */
+.list-header {
   font-size: 0.85rem;
   font-weight: 600;
   color: #64748b;
-  border-bottom: 1px solid #cbd5e1;
   background: #f1f5f9;
+  border-bottom: 1px solid #cbd5e1;
 }
 
-/* Data rows */
+/* Row styling */
 .character-card.list {
-  display: grid;
-  grid-template-columns: 2.5fr 0.8fr 1fr 1fr;
-  align-items: center;
-  padding: 10px 14px;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
@@ -104,25 +107,7 @@ body {
   background: #eef2f7;
 }
 
-/* Allow inner fields to act as grid items */
-.character-card.list .card-info {
-  display: contents;
-}
-
-/* Hide image in list view */
-.character-card.list img {
-  display: none;
-}
-
-/* 🔑 FORCE EACH FIELD INTO ITS OWN COLUMN */
-.character-card.list .name,
-.character-card.list .hp,
-.character-card.list .set,
-.character-card.list .type {
-  display: block;
-}
-
-/* Column styling */
+/* Column-specific styles */
 .character-card.list .name {
   font-weight: 600;
   color: #0f172a;
