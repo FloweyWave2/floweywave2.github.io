@@ -2,82 +2,102 @@
 ---
 @import "{{ site.theme }}";
 
-/* =====================
-   BASE LAYOUT
-===================== */
+/* =========================================================
+   1. GLOBAL FOUNDATION
+   These rules affect the entire site and set basic defaults
+========================================================= */
 
+/* Remove browser default spacing and define a clean font stack */
 body {
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
 }
 
+/* Hide the default Jekyll page header (we use our own) */
 .page-header {
   display: none !important;
 }
 
+/* Top site navigation bar */
 .site-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex;                     /* horizontal layout */
+  justify-content: space-between;    /* title on left, nav on right */
+  align-items: center;               /* vertical centering */
   padding: 16px 32px;
   background: #200f2a;
   color: white;
 }
 
+/* Main content wrapper
+   Keeps content centered and readable on wide screens */
 .site-content {
   max-width: 960px;
-  margin: 40px auto;
-  padding: 0 20px;
+  margin: 40px auto;                 /* center horizontally */
+  padding: 0 20px;                   /* breathing room on mobile */
 }
 
+/* =========================================================
+   2. VIEW CONTROLS
+   UI elements that affect how content is displayed
+========================================================= */
+
+/* View selector dropdown (Grid / Checklist) */
 #view-select {
-  margin: 12px 0 24px;
+  margin: 12px 0 24px;               /* space above & below */
   padding: 6px 10px;
   font-size: 0.95rem;
 }
 
-/* =====================
-   IMAGE (GRID) VIEW
-===================== */
+/* =========================================================
+   3. IMAGE VIEW (CARD GRID)
+   Visual browsing mode: images only
+========================================================= */
 
+/* Grid container for card images */
 #character-cards.grid-view {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  gap: 16px;                             /* space between cards */
 }
 
+/* Individual card in grid mode */
 .character-card.grid {
-  cursor: pointer;
+  cursor: pointer;                      /* clickable affordance */
 }
 
+/* Card image styling */
 .character-card.grid img {
-  width: 100%;
-  display: block;
+  width: 100%;                          /* fill grid cell */
+  display: block;                      /* remove inline spacing */
   border-radius: 12px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease;     /* smooth hover effect */
 }
 
+/* Subtle zoom on hover for interactivity */
 .character-card.grid:hover img {
   transform: scale(1.04);
 }
 
-/* =====================
-   LIST (CHECKLIST) VIEW
-===================== */
+/* =========================================================
+   4. LIST VIEW (CHECKLIST / TABLE-LIKE)
+   Data-dense, readable, Excel-but-pretty mode
+========================================================= */
 
+/* List container (vertical stack) */
 #character-cards.list-view {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 6px;                            /* space between rows */
 }
 
-/* Header + rows share the same grid */
+/* Header row and data rows share the SAME grid
+   This guarantees perfect column alignment */
 .list-header,
 .character-card.list {
   display: grid;
   grid-template-columns:
-    2.5fr   /* Jméno */
-    0.8fr   /* HP */
+    2.5fr   /* Jméno — longest text */
+    0.8fr   /* HP — compact */
     1fr     /* Sada */
     1fr;    /* Typ */
 
@@ -85,7 +105,7 @@ body {
   padding: 10px 14px;
 }
 
-/* Header styling */
+/* Header appearance */
 .list-header {
   font-size: 0.85rem;
   font-weight: 600;
@@ -94,7 +114,7 @@ body {
   border-bottom: 1px solid #cbd5e1;
 }
 
-/* Row styling */
+/* Individual checklist row */
 .character-card.list {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -103,26 +123,35 @@ body {
   transition: background 0.15s ease;
 }
 
+/* Row hover feedback */
 .character-card.list:hover {
   background: #eef2f7;
 }
 
-/* Column-specific styles */
+/* =========================================================
+   5. COLUMN-SPECIFIC STYLING
+   Visual hierarchy inside checklist rows
+========================================================= */
+
+/* Name is the primary identifier */
 .character-card.list .name {
   font-weight: 600;
   color: #0f172a;
 }
 
+/* HP stands out with color */
 .character-card.list .hp {
   font-weight: 500;
   color: #dc2626;
 }
 
+/* Set is secondary information */
 .character-card.list .set {
   font-size: 0.9rem;
   color: #475569;
 }
 
+/* Type gets a subtle accent color */
 .character-card.list .type {
   font-size: 0.9rem;
   color: #0369a1;
