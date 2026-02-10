@@ -79,5 +79,5 @@ const character_cards = [
     type: "Postava",
     text: "Kdykoliv zraníš jednoho nebo více hráčů, vyléči si 1 zranění. (Namísto toho 2 zranění, pokud tvůj útok hráče vyřadil.)",
     image: "images/bang/cards/characters/lisa_elend.png"
-  },
+  }
 ];
