@@ -56,7 +56,7 @@ body {
 /* Grid container for card images */
 #character-cards.grid-view {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 4 equal columns */
+  grid-template-columns: repeat(5, 1fr); /* 4 equal columns */
   gap: 16px;                             /* space between cards */
 }
 
