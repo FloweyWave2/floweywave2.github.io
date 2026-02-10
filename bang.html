@@ -6,8 +6,15 @@ title: Bang
 <h2>Databáze Bang Kartiček</h2>
 <p>Vyhledej kartu, kterou potřebuješ a filtruj databází.</p>
 
-<section id="character-cards"></section>
+<label for="view-select" style="font-weight:600;">
+  Zobrazení:
+</label>
+<select id="view-select">
+  <option value="grid">Obrázky</option>
+  <option value="list">Checklist</option>
+</select>
 
+<section id="character-cards"></section>
 
 <script src="assets/bang/character_cards.js"></script>
 <script src="assets/js/main.js"></script>
