@@ -7,39 +7,45 @@ title: Bang
 <p>Vyhledej kartu, kterou potřebuješ a filtruj databází.</p>
 
 
-<label for="search-box" style="font-weight:600; margin-right: 8px;">
-  Vyhledávání:
-</label>
-<input type="text" id="search-box" placeholder="Hledat..." style="padding:6px 10px; font-size:0.95rem; width:200px; margin-right:8px;">
+<div id="controls" style="display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-bottom:20px;">
 
-<select id="search-criteria" style="padding:6px 10px; font-size:0.95rem; margin-right:8px;">
-  <option value="name" selected>Jméno</option>
-  <option value="hp">Životy</option>
-  <option value="set">Set</option>
-  <option value="type">Rámeček</option>
-</select>
+  <!-- Search box + criteria -->
+  <label for="search-box" style="font-weight:600;">Vyhledávání:</label>
+  <input type="text" id="search-box" placeholder="Hledat..." style="padding:6px 10px; font-size:0.95rem; width:200px;">
 
-<select id="sort-by" style="padding:6px 10px; font-size:0.95rem; margin-right:8px;">
-  <option value="name" selected>Jméno</option>
-  <option value="hp">Životy</option>
-  <option value="set">Set</option>
-  <option value="type">Rámeček</option>
-</select>
+  <select id="search-criteria" style="padding:6px 10px; font-size:0.95rem;">
+    <option value="name" selected>Jméno</option>
+    <option value="hp">Životy</option>
+    <option value="set">Set</option>
+    <option value="type">Rámeček</option>
+    <option value="text">Text karty</option>
+  </select>
 
-<select id="sort-order" style="padding:6px 10px; font-size:0.95rem;">
-  <option value="asc" selected>Vzestupně</option>
-  <option value="desc">Sestupně</option>
-</select>
+  <!-- Sort area -->
+  <label for="sort-by" style="font-weight:600; margin-left:16px;">Seřadit podle:</label>
+  <select id="sort-by" style="padding:6px 10px; font-size:0.95rem;">
+    <option value="name" selected>Jméno</option>
+    <option value="hp">Životy</option>
+    <option value="set">Set</option>
+    <option value="type">Rámeček</option>
+  </select>
 
-<br><br>
+  <select id="sort-order" style="padding:6px 10px; font-size:0.95rem;">
+    <option value="asc" selected>Vzestupně</option>
+    <option value="desc">Sestupně</option>
+  </select>
 
-<label for="view-select" style="font-weight:600;">
-  Zobrazení:
-</label>
-<select id="view-select">
-  <option value="grid">Obrázky</option>
-  <option value="list">Checklist</option>
-</select>
+  <!-- View selector -->
+  <label for="view-select" style="font-weight:600; margin-left:16px;">Zobrazení:</label>
+  <select id="view-select" style="padding:6px 10px; font-size:0.95rem;">
+    <option value="grid">Obrázky</option>
+    <option value="list">Checklist</option>
+  </select>
+
+</div>
+
+<section id="character-cards"></section>
+
 
 
 
