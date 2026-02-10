@@ -100,7 +100,7 @@ if (container) {
       }
 
       cardEl.addEventListener("click", () => {
-        window.location.href = `bang/${slugify(card.name)}.html`;
+        window.location.href = `bang/cards/${slugify(card.name)}.html`;
       });
 
       container.appendChild(cardEl);
