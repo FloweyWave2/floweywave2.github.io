@@ -6,15 +6,14 @@ if (container) {
     container.innerHTML = "";
     container.className = view + "-view";
 
-    // LIST HEADER (only for checklist view)
     if (view === "list") {
       const header = document.createElement("div");
       header.className = "list-header";
       header.innerHTML = `
-        <span>Jméno</span>
-        <span>HP</span>
-        <span>Sada</span>
-        <span>Typ</span>
+        <div>Jméno</div>
+        <div>HP</div>
+        <div>Sada</div>
+        <div>Typ</div>
       `;
       container.appendChild(header);
     }
@@ -23,15 +22,18 @@ if (container) {
       const cardEl = document.createElement("div");
       cardEl.className = `character-card ${view}`;
 
-      cardEl.innerHTML = `
-        <img src="${card.image}" alt="${card.name}">
-        <div class="card-info">
-          <span class="name">${card.name}</span>
-          <span class="hp">❤️ ${card.hp}</span>
-          <span class="set">${card.set}</span>
-          <span class="type">${card.type}</span>
-        </div>
-      `;
+      if (view === "grid") {
+        cardEl.innerHTML = `
+          <img src="${card.image}" alt="${card.name}">
+        `;
+      } else {
+        cardEl.innerHTML = `
+          <div class="name">${card.name}</div>
+          <div class="hp">❤️ ${card.hp}</div>
+          <div class="set">${card.set}</div>
+          <div class="type">${card.type}</div>
+        `;
+      }
 
       cardEl.addEventListener("click", () => {
         window.location.href = `bang/${slugify(card.name)}.html`;
@@ -41,10 +43,8 @@ if (container) {
     });
   }
 
-  // Initial render
   renderCards("grid");
 
-  // View switcher
   viewSelect.addEventListener("change", e => {
     renderCards(e.target.value);
   });
