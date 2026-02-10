@@ -26,8 +26,12 @@ if (container) {
     if (!query) return character_cards;
 
     return character_cards.filter(card => {
-      const value = card[criterion].toString().toLowerCase();
-      return value.includes(query);
+      let value = card[criterion];
+
+      // For HP, ensure numeric comparison works properly
+      if (criterion === "hp") value = value.toString();
+
+      return value.toLowerCase().includes(query);
     });
   }
 
@@ -64,7 +68,6 @@ if (container) {
       `;
       container.appendChild(header);
 
-      // Header click sorting
       header.querySelectorAll("div").forEach(col => {
         col.style.cursor = "pointer";
         col.addEventListener("click", () => {
@@ -74,7 +77,6 @@ if (container) {
             currentSort.key = key;
             currentSort.asc = true;
           }
-          // sync combo boxes
           sortBy.value = currentSort.key;
           sortOrder.value = currentSort.asc ? "asc" : "desc";
           renderCards("list");
