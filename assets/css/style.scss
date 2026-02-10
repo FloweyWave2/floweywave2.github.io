@@ -56,7 +56,7 @@ body {
 /* Grid container for card images */
 #character-cards.grid-view {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(5, 1fr); /* exactly 5 cards */
   gap: 16px;
 }
 
@@ -67,10 +67,10 @@ body {
 
 /* Card image styling */
 .character-card.grid img {
-  width: 100%;                          /* fill grid cell */
-  display: block;                      /* remove inline spacing */
+  width: 100%;
+  display: block;
   border-radius: 12px;
-  transition: transform 0.2s ease;     /* smooth hover effect */
+  transition: transform 0.2s ease;
 }
 
 /* Subtle zoom on hover for interactivity */
