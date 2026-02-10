@@ -10,7 +10,27 @@ title: Bang
 <label for="search-box" style="font-weight:600; margin-right: 8px;">
   Vyhledávání:
 </label>
-<input type="text" id="search-box" placeholder="Hledat karty podle jména, textu, typu nebo HP..." style="padding:6px 10px; font-size:0.95rem; width:300px;">
+<input type="text" id="search-box" placeholder="Hledat..." style="padding:6px 10px; font-size:0.95rem; width:200px; margin-right:8px;">
+
+<select id="search-criteria" style="padding:6px 10px; font-size:0.95rem; margin-right:8px;">
+  <option value="name" selected>Jméno</option>
+  <option value="hp">Životy</option>
+  <option value="set">Set</option>
+  <option value="type">Rámeček</option>
+</select>
+
+<select id="sort-by" style="padding:6px 10px; font-size:0.95rem; margin-right:8px;">
+  <option value="name" selected>Jméno</option>
+  <option value="hp">Životy</option>
+  <option value="set">Set</option>
+  <option value="type">Rámeček</option>
+</select>
+
+<select id="sort-order" style="padding:6px 10px; font-size:0.95rem;">
+  <option value="asc" selected>Vzestupně</option>
+  <option value="desc">Sestupně</option>
+</select>
+
 <br><br>
 
 <label for="view-select" style="font-weight:600;">
@@ -20,6 +40,7 @@ title: Bang
   <option value="grid">Obrázky</option>
   <option value="list">Checklist</option>
 </select>
+
 
 
 <section id="character-cards"></section>
