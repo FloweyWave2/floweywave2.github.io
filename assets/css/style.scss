@@ -1,6 +1,5 @@
 ---
 ---
-
 @import "{{ site.theme }}";
 
 body {
@@ -21,53 +20,21 @@ body {
   color: white;
 }
 
-.site-name {
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-.header-nav a {
-  color: white;
-  margin-left: 20px;
-  text-decoration: none;
-  position: relative;
-}
-
-.header-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  left: 0;
-  bottom: -4px;
-  background: #7238f8;
-  transition: width 0.3s ease;
-}
-
-.header-nav a:hover::after {
-  width: 100%;
-}
-
 .site-content {
   max-width: 960px;
   margin: 40px auto;
   padding: 0 20px;
 }
 
-.profile-img {
-  width: 200px;
-  border-radius: 12px;
-  transition: transform 0.3s ease, filter 0.3s ease;
+#view-select {
+  margin: 12px 0 24px;
+  padding: 6px 10px;
+  font-size: 0.95rem;
 }
 
-.profile-img:hover {
-  transform: scale(1.05);
-  filter: brightness(1.1);
-}
-
-#character-cards {
-  margin-top: 24px;
-}
+/* =====================
+   GRID (IMAGE) VIEW
+===================== */
 
 #character-cards.grid-view {
   display: grid;
@@ -89,9 +56,14 @@ body {
   transform: scale(1.04);
 }
 
+/* Hide ALL text in image view */
 .character-card.grid .card-info {
   display: none;
 }
+
+/* =====================
+   LIST (CHECKLIST) VIEW
+===================== */
 
 #character-cards.list-view {
   display: flex;
@@ -99,60 +71,7 @@ body {
   gap: 6px;
 }
 
-.character-card.list {
-  display: grid;
-  grid-template-columns:
-    2.5fr   /* name */
-    0.8fr   /* HP */
-    1fr     /* set */
-    1fr;    /* type */
-
-  align-items: center;
-  padding: 10px 14px;
-
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-
-  cursor: pointer;
-  transition: background 0.15s ease;
-}
-
-.character-card.list:hover {
-  background: #eef2f7;
-}
-
-.character-card.list img {
-  display: none;
-}
-
-.character-card.list .name {
-  font-weight: 600;
-  color: #0f172a;
-}
-
-.character-card.list .hp {
-  font-weight: 500;
-  color: #dc2626; /* nice red heart */
-}
-
-.character-card.list .set {
-  font-size: 0.9rem;
-  color: #475569;
-}
-
-.character-card.list .type {
-  font-size: 0.9rem;
-  color: #0369a1;
-}
-
-#list-view-container {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-/* Header grid */
+/* Header */
 .list-header {
   display: grid;
   grid-template-columns: 2.5fr 0.8fr 1fr 1fr;
@@ -164,7 +83,7 @@ body {
   background: #f1f5f9;
 }
 
-/* List items grid (same columns) */
+/* Rows */
 .character-card.list {
   display: grid;
   grid-template-columns: 2.5fr 0.8fr 1fr 1fr;
@@ -175,4 +94,34 @@ body {
   border-radius: 10px;
   cursor: pointer;
   transition: background 0.15s ease;
+}
+
+.character-card.list:hover {
+  background: #eef2f7;
+}
+
+/* Hide images in list view */
+.character-card.list img {
+  display: none;
+}
+
+/* Text styling */
+.character-card.list .name {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.character-card.list .hp {
+  font-weight: 500;
+  color: #dc2626;
+}
+
+.character-card.list .set {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.character-card.list .type {
+  font-size: 0.9rem;
+  color: #0369a1;
 }
