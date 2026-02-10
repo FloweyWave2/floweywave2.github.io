@@ -1,13 +1,15 @@
 const container = document.getElementById("character-cards");
 const viewSelect = document.getElementById("view-select");
 const searchBox = document.getElementById("search-box");
+const searchCriteria = document.getElementById("search-criteria");
+const sortBy = document.getElementById("sort-by");
+const sortOrder = document.getElementById("sort-order");
 
 let currentView = "grid";
 let currentSort = { key: "name", asc: true };
 
 if (container) {
 
-  // Utility: slugify for card links
   function slugify(text) {
     return text
       .toLowerCase()
@@ -16,72 +18,39 @@ if (container) {
       .replace(/(^-|-$)/g, "");
   }
 
-  // Filter based on search query
-  function filterCards(query) {
-    query = query.trim();
+  // Filter cards based on selected criteria
+  function filterCards() {
+    const query = searchBox.value.trim().toLowerCase();
+    const criterion = searchCriteria.value;
+
     if (!query) return character_cards;
 
-    const hpMatch = query.match(/HP([><]?=?)\s*(\d+)/i);
-    const typeMatch = query.match(/type=(.+)/i);
-    const nameMatch = query.match(/name=(.+)/i);
-    const textMatch = query.match(/text=(.+)/i);
-
     return character_cards.filter(card => {
-      let pass = true;
-
-      if (hpMatch) {
-        const op = hpMatch[1] || "=";
-        const value = parseInt(hpMatch[2], 10);
-        if (op === "=") pass = card.hp === value;
-        else if (op === ">") pass = card.hp > value;
-        else if (op === "<") pass = card.hp < value;
-        else if (op === ">=") pass = card.hp >= value;
-        else if (op === "<=") pass = card.hp <= value;
-      }
-
-      if (typeMatch) {
-        pass = pass && card.type.toLowerCase().includes(typeMatch[1].trim().toLowerCase());
-      }
-
-      if (nameMatch) {
-        pass = pass && card.name.toLowerCase().includes(nameMatch[1].trim().toLowerCase());
-      }
-
-      if (textMatch) {
-        pass = pass && card.text.toLowerCase().includes(textMatch[1].trim().toLowerCase());
-      }
-
-      // default search by name if no operator
-      if (!hpMatch && !typeMatch && !nameMatch && !textMatch) {
-        pass = card.name.toLowerCase().includes(query.toLowerCase());
-      }
-
-      return pass;
+      const value = card[criterion].toString().toLowerCase();
+      return value.includes(query);
     });
   }
 
-  // Sort cards
+  // Sort cards based on currentSort state
   function sortCards(cards) {
     return cards.sort((a, b) => {
       const valA = a[currentSort.key];
       const valB = b[currentSort.key];
       if (typeof valA === "string") {
-        return currentSort.asc
-          ? valA.localeCompare(valB)
-          : valB.localeCompare(valA);
+        return currentSort.asc ? valA.localeCompare(valB) : valB.localeCompare(valA);
       } else {
         return currentSort.asc ? valA - valB : valB - valA;
       }
     });
   }
 
-  // Render cards
+  // Render cards in grid or list view
   function renderCards(view = currentView) {
     currentView = view;
     container.innerHTML = "";
     container.className = view + "-view";
 
-    let cardsToRender = filterCards(searchBox.value);
+    let cardsToRender = filterCards();
     cardsToRender = sortCards(cardsToRender);
 
     if (view === "list") {
@@ -95,7 +64,7 @@ if (container) {
       `;
       container.appendChild(header);
 
-      // Make headers clickable
+      // Header click sorting
       header.querySelectorAll("div").forEach(col => {
         col.style.cursor = "pointer";
         col.addEventListener("click", () => {
@@ -105,6 +74,9 @@ if (container) {
             currentSort.key = key;
             currentSort.asc = true;
           }
+          // sync combo boxes
+          sortBy.value = currentSort.key;
+          sortOrder.value = currentSort.asc ? "asc" : "desc";
           renderCards("list");
         });
       });
@@ -133,10 +105,22 @@ if (container) {
     });
   }
 
-  // Initial render
-  renderCards("grid");
+  // Update sort state when combo boxes change
+  sortBy.addEventListener("change", () => {
+    currentSort.key = sortBy.value;
+    renderCards(currentView);
+  });
+
+  sortOrder.addEventListener("change", () => {
+    currentSort.asc = sortOrder.value === "asc";
+    renderCards(currentView);
+  });
 
   // Event listeners
   viewSelect.addEventListener("change", e => renderCards(e.target.value));
   searchBox.addEventListener("input", () => renderCards(currentView));
+  searchCriteria.addEventListener("change", () => renderCards(currentView));
+
+  // Initial render
+  renderCards("grid");
 }
