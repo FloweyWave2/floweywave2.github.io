@@ -102,6 +102,55 @@ body {
   padding: 0 20px;
 }
 
+// LIGHT MODE STYLES
+
+/* Smooth theme transition */
+body {
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.site-header {
+  transition: background 0.4s ease, border 0.4s ease;
+}
+
+/* Toggle button */
+#theme-toggle {
+  background: none;
+  border: 1px solid rgba(168,85,247,0.4);
+  color: #a855f7;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background: rgba(168,85,247,0.15);
+  transform: translateY(-2px);
+}
+
+/* LIGHT MODE STYLES */
+body.light-mode {
+  background: #f9fafb;
+  color: #111827;
+}
+
+body.light-mode .site-header {
+  background: rgba(255,255,255,0.9);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+body.light-mode .logo {
+  color: #111827;
+}
+
+body.light-mode .nav-links a {
+  color: #374151;
+}
+
+body.light-mode .nav-links a:hover {
+  color: #a855f7;
+}
 
 /* =========================================================
    2. VIEW CONTROLS
