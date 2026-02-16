@@ -10,6 +10,36 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
+<script>
+  const toggleButton = document.getElementById("theme-toggle");
+  const body = document.body;
+  const icon = toggleButton.querySelector("i");
+  
+  // Load saved theme
+  if (localStorage.getItem("theme") === "light") {
+    body.classList.add("light-mode");
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+  }
+  
+  // Toggle theme
+  toggleButton.addEventListener("click", () => {
+    body.classList.toggle("light-mode");
+  
+    const isLight = body.classList.contains("light-mode");
+  
+    if (isLight) {
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
+      localStorage.setItem("theme", "light");
+    } else {
+      icon.classList.remove("fa-sun");
+      icon.classList.add("fa-moon");
+      localStorage.setItem("theme", "dark");
+    }
+  });
+</script>
+
 <body>
 
 <header class="site-header">
@@ -29,6 +59,11 @@
         <a href="#"><i class="fab fa-twitter"></i></a>
         <a href="#"><i class="fab fa-reddit"></i></a>
       </div>
+
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+      
     </nav>
   </div>
 </header>
