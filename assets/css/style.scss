@@ -11,30 +11,98 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
+  background: #0f0b1a;
+  color: #e5e7eb;
 }
 
-/* Hide the default Jekyll page header (we use our own) */
-.page-header {
-  display: none !important;
-}
-
-/* Top site navigation bar */
+/* HEADER */
 .site-header {
-  display: flex;                     /* horizontal layout */
-  justify-content: space-between;    /* title on left, nav on right */
-  align-items: center;               /* vertical centering */
-  padding: 16px 32px;
-  background: #200f2a;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(16px);
+  background: rgba(20, 12, 35, 0.75);
+  border-bottom: 1px solid rgba(168,85,247,0.2);
+  z-index: 1000;
+}
+
+.header-inner {
+  max-width: 1300px;
+  margin: auto;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.logo .accent {
+  color: #a855f7;
+}
+
+.logo:hover {
+  text-shadow: 0 0 12px rgba(168,85,247,0.8);
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: #d1d5db;
+  transition: 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #a855f7;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
   color: white;
 }
 
-/* Main content wrapper
-   Keeps content centered and readable on wide screens */
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+}
+
+.socials a {
+  color: #9ca3af;
+  transition: 0.3s ease;
+}
+
+.socials a:hover {
+  color: #a855f7;
+  transform: translateY(-2px);
+}
+
 .site-content {
   max-width: 1200px;
-  margin: 40px auto;                 /* center horizontally */
-  padding: 0 20px;                   /* breathing room on mobile */
+  margin: 60px auto;
+  padding: 0 20px;
 }
+
 
 /* =========================================================
    2. VIEW CONTROLS
