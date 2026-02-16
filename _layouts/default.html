@@ -5,29 +5,81 @@
   <title>{{ page.title }} | {{ site.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Your CSS -->
   <link rel="stylesheet" href="{{ "/assets/css/style.css" | relative_url }}">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+
+    <!-- Logo -->
+    <a href="/" class="logo">
+      Michael <span class="accent">"FloweyWave"</span> Šlechtický
+    </a>
+
+    <!-- Navigation -->
+    <nav class="nav-links">
+      <a href="/about">About Me</a>
+      <a href="/projects">Projects</a>
+      <a href="/memories">Memories</a>
+      <a href="/contact">Contact</a>
+
+      <!-- Social Icons -->
+      <div class="socials">
+        <a href="#"><i class="fab fa-discord"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-reddit"></i></a>
+      </div>
+
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+    </nav>
+
+  </div>
+</header>
+
+<main class="site-content">
+  {{ content }}
+</main>
+
+<!-- THEME SCRIPT -->
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+
   const toggleButton = document.getElementById("theme-toggle");
   const body = document.body;
   const icon = toggleButton.querySelector("i");
-  
-  // Load saved theme
-  if (localStorage.getItem("theme") === "light") {
+
+  // 1️⃣ Check saved theme
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "light") {
     body.classList.add("light-mode");
     icon.classList.remove("fa-moon");
     icon.classList.add("fa-sun");
   }
-  
-  // Toggle theme
+
+  // 2️⃣ If no saved theme, check system preference
+  if (!savedTheme && window.matchMedia("(prefers-color-scheme: light)").matches) {
+    body.classList.add("light-mode");
+    icon.classList.remove("fa-moon");
+    icon.classList.add("fa-sun");
+  }
+
+  // 3️⃣ Toggle click
   toggleButton.addEventListener("click", () => {
     body.classList.toggle("light-mode");
-  
+
     const isLight = body.classList.contains("light-mode");
-  
+
     if (isLight) {
       icon.classList.remove("fa-moon");
       icon.classList.add("fa-sun");
@@ -38,39 +90,9 @@
       localStorage.setItem("theme", "dark");
     }
   });
+
+});
 </script>
-
-<body>
-
-<header class="site-header">
-  <div class="header-inner">
-    <a href="/" class="logo">
-      Michael <span class="accent">"FloweyWave"</span> Šlechtický
-    </a>
-
-    <nav class="nav-links">
-      <a href="/about">About Me</a>
-      <a href="/projects">Projects</a>
-      <a href="/memories">Memories</a>
-      <a href="/contact">Contact</a>
-
-      <div class="socials">
-        <a href="#"><i class="fab fa-discord"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-reddit"></i></a>
-      </div>
-
-      <button id="theme-toggle" aria-label="Toggle theme">
-        <i class="fas fa-moon"></i>
-      </button>
-      
-    </nav>
-  </div>
-</header>
-
-<main class="site-content">
-  {{ content }}
-</main>
 
 </body>
 </html>
