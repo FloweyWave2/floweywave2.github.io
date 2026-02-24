@@ -5,90 +5,59 @@ title: Projects
 
 <section class="projects-page">
 
-  <h1 class="page-title">Projects</h1>
-  <p class="page-subtitle">
-    A collection of things I’ve created, built, designed, translated, or helped shape.
-  </p>
+  <div class="hero-block">
+    <h1>Projects</h1>
+    <p>Things I’ve built, designed, translated, or helped shape.</p>
+  </div>
 
-  <!-- BOARD & CARD GAMES -->
+  <!-- CATEGORY -->
   <div class="project-section">
     <h2>🎲 Board & Card Games</h2>
 
     <div class="project-grid">
 
-      <div class="project-card">
-        <img src="/assets/images/placeholder-game.jpg" alt="Project image">
-        <div class="project-content">
-          <h3>Project Name</h3>
-          <p>Short description of your board or card game project.</p>
+      <div class="project-card reveal">
+        <div class="card-image">
+          <img src="/assets/images/placeholder-game.jpg">
+          <span class="tag">Prototype</span>
+        </div>
+        <div class="card-content">
+          <h3>Arcane Duel</h3>
+          <p>A competitive tactical card game built around resource denial and chaos magic.</p>
         </div>
       </div>
 
-      <div class="project-card">
-        <img src="/assets/images/placeholder-game.jpg" alt="Project image">
-        <div class="project-content">
-          <h3>Another Game</h3>
-          <p>Short description explaining what makes it cool.</p>
+      <div class="project-card reveal">
+        <div class="card-image">
+          <img src="/assets/images/placeholder-game.jpg">
+          <span class="tag">Released</span>
         </div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- SOFTWARE -->
-  <div class="project-section">
-    <h2>💻 Software & Applications</h2>
-
-    <div class="project-grid">
-
-      <div class="project-card">
-        <img src="/assets/images/placeholder-app.jpg" alt="Project image">
-        <div class="project-content">
-          <h3>Cool App</h3>
-          <p>A program or tool you developed.</p>
+        <div class="card-content">
+          <h3>Plague Syndicate</h3>
+          <p>Strategic infection-themed board game inspired by asymmetric power design.</p>
         </div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- WEBSITES & TRANSLATIONS -->
-  <div class="project-section">
-    <h2>🌐 Websites & Translations</h2>
-
-    <div class="project-grid">
-
-      <div class="project-card">
-        <img src="/assets/images/placeholder-web.jpg" alt="Project image">
-        <div class="project-content">
-          <h3>Website Name</h3>
-          <p>Designed and developed with modern UI principles.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- CONTRIBUTIONS -->
-  <div class="project-section">
-    <h2>🤝 Contributions & Collaborations</h2>
-
-    <div class="contribution-list">
-
-      <div class="contribution-item">
-        <h4>Company / Project Name</h4>
-        <p>Brief explanation of your role or help provided.</p>
-      </div>
-
-      <div class="contribution-item">
-        <h4>Another Organization</h4>
-        <p>How you contributed or collaborated.</p>
       </div>
 
     </div>
   </div>
 
 </section>
+
+<script>
+/* Scroll Reveal Animation */
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+
+    if (elementTop < windowHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+</script>
