@@ -274,64 +274,6 @@ body.light-mode .nav-links a:hover {
 }
 
 /* ===============================
-   ADVANCED SECTION HEADERS
-================================= */
-
-.section-header {
-  margin: 100px 0 50px;
-  position: relative;
-}
-
-.section-header h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
-  position: relative;
-  display: inline-block;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: white;
-}
-
-/* Animated glitch duplicate layer */
-.section-header h2::before {
-  content: attr(data-text);
-  position: absolute;
-  left: 2px;
-  top: 0;
-  color: #a855f7;
-  z-index: -1;
-  animation: glitch1 2s infinite linear alternate-reverse;
-}
-
-.section-header h2::after {
-  content: attr(data-text);
-  position: absolute;
-  left: -2px;
-  top: 0;
-  color: #6366f1;
-  z-index: -2;
-  animation: glitch2 2s infinite linear alternate-reverse;
-}
-
-@keyframes glitch1 {
-  0% { transform: translate(0); }
-  20% { transform: translate(-2px, 1px); }
-  40% { transform: translate(-1px, -1px); }
-  60% { transform: translate(-3px, 2px); }
-  80% { transform: translate(1px, -2px); }
-  100% { transform: translate(0); }
-}
-
-@keyframes glitch2 {
-  0% { transform: translate(0); }
-  20% { transform: translate(2px, -1px); }
-  40% { transform: translate(1px, 1px); }
-  60% { transform: translate(3px, -2px); }
-  80% { transform: translate(-1px, 2px); }
-  100% { transform: translate(0); }
-}
-
-/* ===============================
    PROJECTS PAGE
 ================================= */
 
@@ -476,34 +418,3 @@ body.light-mode .nav-links a:hover {
   font-size: 0.95rem;
   color: #9ca3af;
 }
-
-.section-header {
-  margin-bottom: 30px;
-}
-
-.section-header h2 {
-  font-size: 1.8rem;
-  margin: 0;
-  background: linear-gradient(90deg, #a855f7, #6366f1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.section-line {
-  height: 3px;
-  width: 80px;
-  margin-top: 8px;
-  background: linear-gradient(90deg, #a855f7, transparent);
-  border-radius: 10px;
-}
-
-.flag {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  font-size: 1.2rem;
-}
-
-.program { background: #10b981; }
-.web { background: #3b82f6; }
-.translation { background: #f59e0b; }
