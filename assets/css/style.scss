@@ -273,6 +273,7 @@ body.light-mode .nav-links a:hover {
   color: #0369a1;
 }
 
+
 /* ===============================
    PROJECTS PAGE
 ================================= */
@@ -307,7 +308,6 @@ body.light-mode .nav-links a:hover {
   gap: 30px;
 }
 
-/* Responsive */
 @media (max-width: 1200px) {
   .project-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -342,7 +342,7 @@ body.light-mode .nav-links a:hover {
   transform: translateY(40px);
   opacity: 0;
   display: block;
-  position: relative; /* for flag positioning */
+  position: relative;
 }
 
 .project-card.active {
@@ -367,7 +367,7 @@ body.light-mode .nav-links a:hover {
   justify-content: center;
   background: radial-gradient(circle at center, rgba(168,85,247,0.15), transparent 70%);
   overflow: hidden;
-  position: relative; /* for absolute flags */
+  position: relative;
 }
 
 .card-image img {
@@ -422,7 +422,7 @@ body.light-mode .nav-links a:hover {
 }
 
 /* ===============================
-   Section Headers Upgrade
+   SECTION HEADERS - NEXT LEVEL
 ================================= */
 
 .section-header {
@@ -431,41 +431,58 @@ body.light-mode .nav-links a:hover {
 }
 
 .section-header h2 {
-  font-size: 2rem;
-  margin: 0;
-  font-weight: 700;
+  font-size: 2.4rem;
+  font-weight: 900;
   position: relative;
   display: inline-block;
-  padding-bottom: 8px;
-  background: linear-gradient(90deg, #a855f7, #6366f1);
+  padding-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(270deg, #a855f7, #6366f1, #f472b6, #6366f1);
+  background-size: 600% 600%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: background-position 1.5s ease;
-  background-size: 200% 100%;
+  animation: gradientFlow 8s ease infinite, pulse 2s ease-in-out infinite;
+  transition: transform 0.3s ease;
   cursor: default;
 }
 
-.section-header h2:hover {
-  background-position: 100% 0;
-}
-
-/* Animated line */
-.section-line {
+.section-header h2::after {
+  content: '';
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -6px;
   height: 4px;
   width: 100%;
   border-radius: 4px;
-  background: linear-gradient(90deg, #a855f7, #6366f1);
-  opacity: 0.3;
+  background: linear-gradient(90deg, #a855f7, #6366f1, #f472b6, #6366f1);
+  opacity: 0.5;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s ease;
 }
 
-.project-section.active .section-line {
+.project-section.active .section-header h2::after {
   transform: scaleX(1);
+}
+
+/* Hover effect for extra wow */
+.section-header h2:hover {
+  transform: translateY(-5px) scale(1.05);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.25), 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+/* Animated gradient */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Subtle pulsing */
+@keyframes pulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.15); }
 }
 
 /* ===============================
@@ -485,7 +502,7 @@ body.light-mode .nav-links a:hover {
 }
 
 .project-card:hover .flag-img {
-  transform: scale(1.2);
+  transform: scale(1.3);
 }
 
 /* ===============================
