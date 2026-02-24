@@ -419,26 +419,47 @@ body.light-mode .nav-links a:hover {
   color: #9ca3af;
 }
 
+/* ============================
+   Section Headers Upgrade
+============================ */
+
 .section-header {
   margin-bottom: 30px;
+  position: relative;
 }
 
 .section-header h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin: 0;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
   background: linear-gradient(90deg, #a855f7, #6366f1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .section-line {
-  height: 3px;
-  width: 80px;
-  margin-top: 8px;
-  background: linear-gradient(90deg, #a855f7, transparent);
-  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #a855f7, #6366f1);
+  opacity: 0.3;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
 }
 
+/* Animate line on scroll into view */
+.project-section.active .section-line {
+  transform: scaleX(1);
+}
+
+/* Flag for English-only projects */
 .flag {
   position: absolute;
   top: 14px;
@@ -446,6 +467,9 @@ body.light-mode .nav-links a:hover {
   font-size: 1.2rem;
 }
 
+/* Reuse previous tags/colors */
 .program { background: #10b981; }
 .web { background: #3b82f6; }
 .translation { background: #f59e0b; }
+.card-game { background: #a855f7; }
+.video-game { background: #6366f1; }
