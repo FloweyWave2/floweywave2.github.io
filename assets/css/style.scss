@@ -342,6 +342,7 @@ body.light-mode .nav-links a:hover {
   transform: translateY(40px);
   opacity: 0;
   display: block;
+  position: relative; /* for flag positioning */
 }
 
 .project-card.active {
@@ -366,6 +367,7 @@ body.light-mode .nav-links a:hover {
   justify-content: center;
   background: radial-gradient(circle at center, rgba(168,85,247,0.15), transparent 70%);
   overflow: hidden;
+  position: relative; /* for absolute flags */
 }
 
 .card-image img {
@@ -419,9 +421,9 @@ body.light-mode .nav-links a:hover {
   color: #9ca3af;
 }
 
-/* ============================
+/* ===============================
    Section Headers Upgrade
-============================ */
+================================= */
 
 .section-header {
   margin-bottom: 30px;
@@ -438,8 +440,16 @@ body.light-mode .nav-links a:hover {
   background: linear-gradient(90deg, #a855f7, #6366f1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transition: background-position 1.5s ease;
+  background-size: 200% 100%;
+  cursor: default;
 }
 
+.section-header h2:hover {
+  background-position: 100% 0;
+}
+
+/* Animated line */
 .section-line {
   position: absolute;
   left: 0;
@@ -454,20 +464,34 @@ body.light-mode .nav-links a:hover {
   transition: transform 0.5s ease;
 }
 
-/* Animate line on scroll into view */
 .project-section.active .section-line {
   transform: scaleX(1);
 }
 
-/* Flag for English-only projects */
-.flag {
+/* ===============================
+   FLAG (ENGLISH INDICATOR)
+================================= */
+
+.flag-img {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  font-size: 1.2rem;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
 }
 
-/* Reuse previous tags/colors */
+.project-card:hover .flag-img {
+  transform: scale(1.2);
+}
+
+/* ===============================
+   TAG COLORS
+================================= */
+
 .program { background: #10b981; }
 .web { background: #3b82f6; }
 .translation { background: #f59e0b; }
