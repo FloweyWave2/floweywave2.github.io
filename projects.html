@@ -5,23 +5,20 @@ title: Projects
 
 <section class="projects-page">
 
-  <div class="hero-block">
-    <h1>Projects</h1>
-    <p>Things I’ve built, designed, translated, or helped shape.</p>
-  </div>
+  <h1 class="page-title">Projects</h1>
+  <p class="page-subtitle">A collection of things I’ve built, designed, translated, or helped shape.</p>
 
-  <!-- CATEGORY -->
+  <!-- Board & Card Games -->
   <div class="project-section">
     <h2>🎲 Board & Card Games</h2>
-
     <div class="project-grid">
 
       <div class="project-card reveal">
         <div class="card-image">
-          <img src="/assets/images/placeholder-game.jpg">
+          <img src="/assets/images/board1.png" alt="Arcane Duel">
           <span class="tag">Prototype</span>
         </div>
-        <div class="card-content">
+        <div class="project-content">
           <h3>Arcane Duel</h3>
           <p>A competitive tactical card game built around resource denial and chaos magic.</p>
         </div>
@@ -29,10 +26,10 @@ title: Projects
 
       <div class="project-card reveal">
         <div class="card-image">
-          <img src="/assets/images/placeholder-game.jpg">
+          <img src="/assets/images/card1.png" alt="Plague Syndicate">
           <span class="tag">Released</span>
         </div>
-        <div class="card-content">
+        <div class="project-content">
           <h3>Plague Syndicate</h3>
           <p>Strategic infection-themed board game inspired by asymmetric power design.</p>
         </div>
@@ -41,18 +38,65 @@ title: Projects
     </div>
   </div>
 
+  <!-- Programs & Apps -->
+  <div class="project-section">
+    <h2>💻 Programs & Apps</h2>
+    <div class="project-grid">
+
+      <div class="project-card reveal">
+        <div class="card-image">
+          <img src="/assets/images/program1.png" alt="Cool App">
+          <span class="tag">Beta</span>
+        </div>
+        <div class="project-content">
+          <h3>Cool App</h3>
+          <p>A sleek desktop app for organizing your personal workflow and notes.</p>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="card-image">
+          <img src="/assets/images/program2.png" alt="Web Dashboard">
+          <span class="tag">Live</span>
+        </div>
+        <div class="project-content">
+          <h3>Web Dashboard</h3>
+          <p>A responsive web dashboard for monitoring various projects and stats.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Contributions -->
+  <div class="project-section">
+    <h2>🤝 Contributions</h2>
+    <div class="contribution-list">
+
+      <div class="contribution-item reveal">
+        <h3>Website Translation</h3>
+        <p>Helped translate a complex website to Czech, keeping UI intact and professional.</p>
+      </div>
+
+      <div class="contribution-item reveal">
+        <h3>App Beta Testing</h3>
+        <p>Provided detailed feedback on user experience and bug reports for a productivity app.</p>
+      </div>
+
+    </div>
+  </div>
+
 </section>
 
 <script>
-/* Scroll Reveal Animation */
+// Scroll Reveal Animation
 const reveals = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
+  const windowHeight = window.innerHeight;
   reveals.forEach(el => {
-    const windowHeight = window.innerHeight;
-    const elementTop = el.getBoundingClientRect().top;
-
-    if (elementTop < windowHeight - 100) {
+    const top = el.getBoundingClientRect().top;
+    if(top < windowHeight - 100) {
       el.classList.add("active");
     }
   });
