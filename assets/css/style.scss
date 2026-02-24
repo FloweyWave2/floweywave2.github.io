@@ -274,17 +274,17 @@ body.light-mode .nav-links a:hover {
 }
 
 /* ===============================
-   PROJECTS PAGE STYLING
+   PROJECTS PAGE
 ================================= */
 
 .projects-page {
-  max-width: 1300px;
+  max-width: 1500px;
   margin: 80px auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 .page-title {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 10px;
   background: linear-gradient(90deg, #a855f7, #6366f1);
   -webkit-background-clip: text;
@@ -294,35 +294,54 @@ body.light-mode .nav-links a:hover {
 .page-subtitle {
   color: #9ca3af;
   margin-bottom: 60px;
+  font-size: 1.05rem;
 }
 
-/* Section spacing */
-.project-section {
-  margin-bottom: 80px;
-}
+/* ===============================
+   GRID - FORCE 4 PER ROW
+================================= */
 
-.project-section h2 {
-  margin-bottom: 30px;
-  font-size: 1.6rem;
-}
-
-/* GRID */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(4, 1fr); /* 4 PER ROW */
+  gap: 30px;
 }
 
-/* CARD */
+/* Responsive */
+@media (max-width: 1200px) {
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===============================
+   CARD
+================================= */
+
 .project-card {
+  text-decoration: none;
+  color: inherit;
   background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(168,85,247,0.15);
-  border-radius: 16px;
+  border: 1px solid rgba(168,85,247,0.2);
+  border-radius: 18px;
   overflow: hidden;
+  backdrop-filter: blur(12px);
   transition: all 0.4s ease;
-  backdrop-filter: blur(10px);
   transform: translateY(40px);
   opacity: 0;
+  display: block;
 }
 
 .project-card.active {
@@ -331,84 +350,71 @@ body.light-mode .nav-links a:hover {
 }
 
 .project-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  border-color: rgba(168,85,247,0.4);
-  box-shadow: 0 10px 30px rgba(168,85,247,0.2);
+  transform: translateY(-8px) scale(1.03);
+  border-color: rgba(168,85,247,0.6);
+  box-shadow: 0 15px 40px rgba(168,85,247,0.25);
 }
 
-/* IMAGE */
+/* ===============================
+   IMAGE
+================================= */
+
 .card-image {
-  position: relative;
-  height: 200px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(168,85,247,0.15), transparent 70%);
   overflow: hidden;
 }
 
 .card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
+  max-height: 140px;
+  max-width: 80%;
+  transition: transform 0.4s ease;
 }
 
 .project-card:hover img {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
-/* TAG */
+/* ===============================
+   TAGS
+================================= */
+
 .tag {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(168,85,247,0.9);
-  padding: 5px 12px;
-  font-size: 0.8rem;
-  border-radius: 20px;
+  top: 14px;
+  left: 14px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
   color: white;
 }
 
-/* CONTENT */
+.card-game {
+  background: #a855f7;
+}
+
+.video-game {
+  background: #6366f1;
+}
+
+/* ===============================
+   CONTENT
+================================= */
+
 .project-content {
-  padding: 20px;
+  padding: 24px;
 }
 
 .project-content h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
+  font-size: 1.2rem;
 }
 
 .project-content p {
-  color: #9ca3af;
   font-size: 0.95rem;
-}
-
-/* CONTRIBUTIONS LIST */
-.contribution-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.contribution-item {
-  background: rgba(255,255,255,0.03);
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(168,85,247,0.15);
-  transition: all 0.3s ease;
-  transform: translateY(40px);
-  opacity: 0;
-}
-
-.contribution-item.active {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.contribution-item:hover {
-  border-color: rgba(168,85,247,0.4);
-  box-shadow: 0 8px 25px rgba(168,85,247,0.15);
-}
-
-.card-content p {
   color: #9ca3af;
-  font-size: 0.95rem;
 }
