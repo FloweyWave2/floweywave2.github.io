@@ -274,178 +274,80 @@ body.light-mode .nav-links a:hover {
 }
 
 /* ===============================
-   PROJECTS PAGE
+   ADVANCED SECTION HEADERS
 ================================= */
-
-.projects-page {
-  max-width: 1500px;
-  margin: 80px auto;
-  padding: 0 40px;
-}
-
-.page-title {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, #a855f7, #6366f1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.page-subtitle {
-  color: #9ca3af;
-  margin-bottom: 60px;
-  font-size: 1.05rem;
-}
-
-/* ===============================
-   GRID - FORCE 4 PER ROW
-================================= */
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 PER ROW */
-  gap: 30px;
-}
-
-/* Responsive */
-@media (max-width: 1200px) {
-  .project-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 900px) {
-  .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ===============================
-   CARD
-================================= */
-
-.project-card {
-  text-decoration: none;
-  color: inherit;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(168,85,247,0.2);
-  border-radius: 18px;
-  overflow: hidden;
-  backdrop-filter: blur(12px);
-  transition: all 0.4s ease;
-  transform: translateY(40px);
-  opacity: 0;
-  display: block;
-}
-
-.project-card.active {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.project-card:hover {
-  transform: translateY(-8px) scale(1.03);
-  border-color: rgba(168,85,247,0.6);
-  box-shadow: 0 15px 40px rgba(168,85,247,0.25);
-}
-
-/* ===============================
-   IMAGE
-================================= */
-
-.card-image {
-  height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, rgba(168,85,247,0.15), transparent 70%);
-  overflow: hidden;
-}
-
-.card-image img {
-  max-height: 140px;
-  max-width: 80%;
-  transition: transform 0.4s ease;
-}
-
-.project-card:hover img {
-  transform: scale(1.1);
-}
-
-/* ===============================
-   TAGS
-================================= */
-
-.tag {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  padding: 6px 14px;
-  border-radius: 30px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: white;
-}
-
-.card-game {
-  background: #a855f7;
-}
-
-.video-game {
-  background: #6366f1;
-}
-
-/* ===============================
-   CONTENT
-================================= */
-
-.project-content {
-  padding: 24px;
-}
-
-.project-content h3 {
-  margin: 0 0 10px;
-  font-size: 1.2rem;
-}
-
-.project-content p {
-  font-size: 0.95rem;
-  color: #9ca3af;
-}
 
 .section-header {
-  margin-bottom: 30px;
+  margin: 100px 0 50px;
+  position: relative;
 }
 
 .section-header h2 {
-  font-size: 1.8rem;
-  margin: 0;
-  background: linear-gradient(90deg, #a855f7, #6366f1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
 }
 
-.section-line {
-  height: 3px;
-  width: 80px;
-  margin-top: 8px;
-  background: linear-gradient(90deg, #a855f7, transparent);
-  border-radius: 10px;
+/* Animated glitch duplicate layer */
+.section-header h2::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  top: 0;
+  color: #a855f7;
+  z-index: -1;
+  animation: glitch1 2s infinite linear alternate-reverse;
 }
+
+.section-header h2::after {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  top: 0;
+  color: #6366f1;
+  z-index: -2;
+  animation: glitch2 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch1 {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 1px); }
+  40% { transform: translate(-1px, -1px); }
+  60% { transform: translate(-3px, 2px); }
+  80% { transform: translate(1px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch2 {
+  0% { transform: translate(0); }
+  20% { transform: translate(2px, -1px); }
+  40% { transform: translate(1px, 1px); }
+  60% { transform: translate(3px, -2px); }
+  80% { transform: translate(-1px, 2px); }
+  100% { transform: translate(0); }
+}
+
+/* ===============================
+   AMERICAN FLAG BADGE
+================================= */
 
 .flag {
   position: absolute;
   top: 14px;
   right: 14px;
-  font-size: 1.2rem;
+  width: 28px;
+  height: 20px;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
-.program { background: #10b981; }
-.web { background: #3b82f6; }
-.translation { background: #f59e0b; }
+.flag img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
