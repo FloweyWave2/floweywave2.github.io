@@ -430,7 +430,7 @@ body.light-mode .nav-links a:hover {
 ================================= */
 
 .section-header {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   position: relative;
   overflow: hidden;
 }
@@ -448,7 +448,7 @@ body.light-mode .nav-links a:hover {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
-  text-shadow: 0 0 10px rgba(255,255,255,0.2);
+  /*text-shadow: 0 0 10px rgba(255,255,255,0.2);*/
 }
 
 /* Animate heading when section comes into view */
