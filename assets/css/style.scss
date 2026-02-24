@@ -272,3 +272,97 @@ body.light-mode .nav-links a:hover {
   font-size: 0.9rem;
   color: #0369a1;
 }
+
+/* ===============================
+   PROJECTS PAGE
+================================= */
+
+.projects-page {
+  max-width: 1300px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.page-subtitle {
+  color: #9ca3af;
+  margin-bottom: 60px;
+}
+
+/* Section spacing */
+.project-section {
+  margin-bottom: 80px;
+}
+
+.project-section h2 {
+  margin-bottom: 30px;
+  font-size: 1.6rem;
+}
+
+/* GRID */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+/* CARD */
+.project-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(168,85,247,0.15);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(168,85,247,0.4);
+  box-shadow: 0 10px 30px rgba(168,85,247,0.2);
+}
+
+/* IMAGE */
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.project-content {
+  padding: 20px;
+}
+
+.project-content h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.project-content p {
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+/* CONTRIBUTIONS LIST */
+.contribution-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contribution-item {
+  background: rgba(255,255,255,0.03);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(168,85,247,0.15);
+  transition: 0.3s ease;
+}
+
+.contribution-item:hover {
+  border-color: rgba(168,85,247,0.4);
+}
