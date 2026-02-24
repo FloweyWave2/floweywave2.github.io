@@ -332,22 +332,178 @@ body.light-mode .nav-links a:hover {
 }
 
 /* ===============================
-   AMERICAN FLAG BADGE
+   PROJECTS PAGE
 ================================= */
+
+.projects-page {
+  max-width: 1500px;
+  margin: 80px auto;
+  padding: 0 40px;
+}
+
+.page-title {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #a855f7, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-subtitle {
+  color: #9ca3af;
+  margin-bottom: 60px;
+  font-size: 1.05rem;
+}
+
+/* ===============================
+   GRID - FORCE 4 PER ROW
+================================= */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 PER ROW */
+  gap: 30px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===============================
+   CARD
+================================= */
+
+.project-card {
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(168,85,247,0.2);
+  border-radius: 18px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  transition: all 0.4s ease;
+  transform: translateY(40px);
+  opacity: 0;
+  display: block;
+}
+
+.project-card.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.project-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: rgba(168,85,247,0.6);
+  box-shadow: 0 15px 40px rgba(168,85,247,0.25);
+}
+
+/* ===============================
+   IMAGE
+================================= */
+
+.card-image {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(168,85,247,0.15), transparent 70%);
+  overflow: hidden;
+}
+
+.card-image img {
+  max-height: 140px;
+  max-width: 80%;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+/* ===============================
+   TAGS
+================================= */
+
+.tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+}
+
+.card-game {
+  background: #a855f7;
+}
+
+.video-game {
+  background: #6366f1;
+}
+
+/* ===============================
+   CONTENT
+================================= */
+
+.project-content {
+  padding: 24px;
+}
+
+.project-content h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+}
+
+.project-content p {
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+.section-header {
+  margin-bottom: 30px;
+}
+
+.section-header h2 {
+  font-size: 1.8rem;
+  margin: 0;
+  background: linear-gradient(90deg, #a855f7, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-line {
+  height: 3px;
+  width: 80px;
+  margin-top: 8px;
+  background: linear-gradient(90deg, #a855f7, transparent);
+  border-radius: 10px;
+}
 
 .flag {
   position: absolute;
   top: 14px;
   right: 14px;
-  width: 28px;
-  height: 20px;
-  border-radius: 3px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  font-size: 1.2rem;
 }
 
-.flag img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.program { background: #10b981; }
+.web { background: #3b82f6; }
+.translation { background: #f59e0b; }
