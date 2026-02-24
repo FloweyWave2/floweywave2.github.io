@@ -6,82 +6,78 @@ title: Projects
 <section class="projects-page">
 
   <h1 class="page-title">Projects</h1>
-  <p class="page-subtitle">A collection of things I’ve built, designed, translated, or helped shape.</p>
+  <p class="page-subtitle">
+    A collection of games, applications, and collaborations I've worked on.
+  </p>
 
-  <!-- Board & Card Games -->
+  <!-- ===================== -->
+  <!-- GAMES SECTION -->
+  <!-- ===================== -->
+
   <div class="project-section">
-    <h2>🎲 Board & Card Games</h2>
+    <h2>🎮 Games</h2>
+
     <div class="project-grid">
 
-      <div class="project-card reveal">
+      <!-- Bang -->
+      <a href="/projects/bang.html" class="project-card reveal">
         <div class="card-image">
-          <img src="/assets/images/board1.png" alt="Arcane Duel">
-          <span class="tag">Prototype</span>
+          <img src="/images/bang_logo.png" alt="Bang Card Game">
+          <span class="tag card-game">Card Game</span>
         </div>
         <div class="project-content">
-          <h3>Arcane Duel</h3>
-          <p>A competitive tactical card game built around resource denial and chaos magic.</p>
+          <h3>Bang</h3>
+          <p>A strategic western-themed card game adaptation and design exploration.</p>
         </div>
-      </div>
+      </a>
 
-      <div class="project-card reveal">
+      <!-- League of Legends -->
+      <a href="/projects/league.html" class="project-card reveal">
         <div class="card-image">
-          <img src="/assets/images/card1.png" alt="Plague Syndicate">
-          <span class="tag">Released</span>
+          <img src="/images/logo_leagueoflegends.png" alt="League of Legends">
+          <span class="tag video-game">Video Game</span>
         </div>
         <div class="project-content">
-          <h3>Plague Syndicate</h3>
-          <p>Strategic infection-themed board game inspired by asymmetric power design.</p>
+          <h3>League of Legends</h3>
+          <p>Game analysis, mechanics breakdowns, and design-focused projects.</p>
         </div>
-      </div>
+      </a>
 
-    </div>
-  </div>
-
-  <!-- Programs & Apps -->
-  <div class="project-section">
-    <h2>💻 Programs & Apps</h2>
-    <div class="project-grid">
-
-      <div class="project-card reveal">
+      <!-- Magical Arena -->
+      <a href="/projects/magical-arena.html" class="project-card reveal">
         <div class="card-image">
-          <img src="/assets/images/program1.png" alt="Cool App">
-          <span class="tag">Beta</span>
+          <img src="/images/logo_magical_arena.png" alt="Magical Arena">
+          <span class="tag video-game">Video Game</span>
         </div>
         <div class="project-content">
-          <h3>Cool App</h3>
-          <p>A sleek desktop app for organizing your personal workflow and notes.</p>
+          <h3>Magical Arena</h3>
+          <p>Fantasy arena-based project exploring abilities and progression systems.</p>
         </div>
-      </div>
+      </a>
 
-      <div class="project-card reveal">
+      <!-- Paradox -->
+      <a href="/projects/paradox.html" class="project-card reveal">
         <div class="card-image">
-          <img src="/assets/images/program2.png" alt="Web Dashboard">
-          <span class="tag">Live</span>
+          <img src="/images/logo_paradox.png" alt="Paradox Card Game">
+          <span class="tag card-game">Card Game</span>
         </div>
         <div class="project-content">
-          <h3>Web Dashboard</h3>
-          <p>A responsive web dashboard for monitoring various projects and stats.</p>
+          <h3>Paradox</h3>
+          <p>A time-bending competitive card game prototype built from scratch.</p>
         </div>
-      </div>
+      </a>
 
-    </div>
-  </div>
-
-  <!-- Contributions -->
-  <div class="project-section">
-    <h2>🤝 Contributions</h2>
-    <div class="contribution-list">
-
-      <div class="contribution-item reveal">
-        <h3>Website Translation</h3>
-        <p>Helped translate a complex website to Czech, keeping UI intact and professional.</p>
-      </div>
-
-      <div class="contribution-item reveal">
-        <h3>App Beta Testing</h3>
-        <p>Provided detailed feedback on user experience and bug reports for a productivity app.</p>
-      </div>
+      <!-- Smash Up -->
+      <a href="/projects/smashup.html" class="project-card reveal">
+        <div class="card-image">
+          <img src="/images/smashup_logo.png" alt="Smash Up">
+          <span class="tag card-game">Card Game</span>
+        </div>
+        <div class="project-content">
+          <h3>Smash Up</h3>
+          <p>Custom expansion design and mechanics experimentation project.</p>
+        </div>
+      </a>
 
     </div>
   </div>
@@ -89,14 +85,13 @@ title: Projects
 </section>
 
 <script>
-// Scroll Reveal Animation
 const reveals = document.querySelectorAll(".reveal");
 
 function revealOnScroll() {
   const windowHeight = window.innerHeight;
   reveals.forEach(el => {
     const top = el.getBoundingClientRect().top;
-    if(top < windowHeight - 100) {
+    if (top < windowHeight - 100) {
       el.classList.add("active");
     }
   });
