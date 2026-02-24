@@ -275,16 +275,12 @@ body.light-mode .nav-links a:hover {
 
 /* ===============================
    PROJECTS PAGE
-   PROJECTS PAGE - MODERN REWRITE
 ================================= */
 
 .projects-page {
   max-width: 1500px;
   margin: 80px auto;
   padding: 0 40px;
-  max-width: 1600px;
-  margin: 120px auto;
-  padding: 0 60px;
 }
 
 .page-title {
@@ -293,23 +289,9 @@ body.light-mode .nav-links a:hover {
   background: linear-gradient(90deg, #a855f7, #6366f1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-/* HERO */
-
-.hero {
-  margin-bottom: 120px;
-}
-
-.hero h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin: 0;
-  letter-spacing: -1px;
 }
 
 .page-subtitle {
-.hero p {
-  margin-top: 15px;
-  font-size: 1.1rem;
   color: #9ca3af;
   margin-bottom: 60px;
   font-size: 1.05rem;
@@ -318,44 +300,11 @@ body.light-mode .nav-links a:hover {
 /* ===============================
    GRID - FORCE 4 PER ROW
 ================================= */
-/* CATEGORY */
-
-.category {
-  margin-bottom: 120px;
-  position: relative;
-}
-
-.category-title {
-  font-size: 1.9rem;
-  font-weight: 600;
-  margin-bottom: 50px;
-  position: relative;
-  display: inline-block;
-}
-
-.category-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -12px;
-  width: 0%;
-  height: 2px;
-  background: white;
-  transition: width 0.6s ease;
-}
-
-.category:hover .category-title::after {
-  width: 100%;
-}
-
-/* GRID */
 
 .project-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 PER ROW */
   gap: 30px;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
 }
 
 /* Responsive */
@@ -363,28 +312,23 @@ body.light-mode .nav-links a:hover {
   .project-grid {
     grid-template-columns: repeat(3, 1fr);
   }
-@media (max-width: 1300px) {
-  .project-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (max-width: 900px) {
   .project-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .project-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 600px) {
   .project-grid {
     grid-template-columns: 1fr;
   }
-  .project-grid { grid-template-columns: 1fr; }
 }
 
 /* ===============================
    CARD
 ================================= */
-/* CARD */
 
 .project-card {
   text-decoration: none;
@@ -392,67 +336,53 @@ body.light-mode .nav-links a:hover {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(168,85,247,0.2);
   border-radius: 18px;
-  border-radius: 20px;
   overflow: hidden;
   backdrop-filter: blur(12px);
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.08);
   transition: all 0.4s ease;
   transform: translateY(40px);
-  transform: translateY(50px);
   opacity: 0;
   display: block;
 }
 
 .project-card.active {
-@@ -350,102 +372,74 @@ body.light-mode .nav-links a:hover {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .project-card:hover {
   transform: translateY(-8px) scale(1.03);
   border-color: rgba(168,85,247,0.6);
   box-shadow: 0 15px 40px rgba(168,85,247,0.25);
-  transform: translateY(-10px);
-  border-color: rgba(255,255,255,0.2);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
 
 /* ===============================
    IMAGE
 ================================= */
-/* IMAGE */
 
 .card-image {
-  position: relative;
   height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: radial-gradient(circle at center, rgba(168,85,247,0.15), transparent 70%);
   overflow: hidden;
-  background: linear-gradient(145deg, rgba(255,255,255,0.03), transparent);
 }
 
 .card-image img {
   max-height: 140px;
   max-width: 80%;
-  max-height: 120px;
-  max-width: 70%;
   transition: transform 0.4s ease;
 }
 
 .project-card:hover img {
-.project-card:hover .card-image img {
   transform: scale(1.1);
 }
 
 /* ===============================
    TAGS
 ================================= */
-/* FLAG */
 
 .tag {
-.flag-icon {
   position: absolute;
   top: 14px;
   left: 14px;
@@ -461,55 +391,30 @@ body.light-mode .nav-links a:hover {
   font-size: 0.75rem;
   font-weight: 600;
   color: white;
-  top: 16px;
-  right: 16px;
-  width: 28px;
-  border-radius: 4px;
 }
 
 .card-game {
-/* BADGES */
-
-.badge {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  padding: 6px 14px;
-  font-size: 0.7rem;
-  border-radius: 30px;
   background: #a855f7;
-  color: white;
-  font-weight: 600;
 }
 
 .video-game {
   background: #6366f1;
 }
-.blue { background: #3b82f6; }
-.green { background: #10b981; }
-.cyan { background: #06b6d4; }
-.orange { background: #f59e0b; }
 
 /* ===============================
    CONTENT
 ================================= */
-/* BODY */
 
 .project-content {
   padding: 24px;
-.card-body {
-  padding: 28px;
 }
 
 .project-content h3 {
-.card-body h3 {
   margin: 0 0 10px;
   font-size: 1.2rem;
 }
 
 .project-content p {
-.card-body p {
-  margin: 0;
   font-size: 0.95rem;
   color: #9ca3af;
 }
