@@ -465,24 +465,6 @@ body.light-mode .nav-links a:hover {
   100% { background-position: 0% 50%; }
 }
 
-/* Section underline */
-.section-line {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  height: 4px;
-  width: 0;
-  border-radius: 4px;
-  background: linear-gradient(90deg, #a855f7, #6366f1);
-  opacity: 0.6;
-  transform: translateX(-50%);
-  transition: width 0.8s ease;
-}
-
-.project-section.active .section-line {
-  width: 100%;
-}
-
 .project-card:hover .flag-img {
   transform: scale(1.2);
 }
