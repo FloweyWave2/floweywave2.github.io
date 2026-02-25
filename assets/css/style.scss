@@ -370,10 +370,16 @@ body.light-mode .nav-links a:hover {
    TAGS
 ================================= */
 
-.tag {
+.tag-container {
   position: absolute;
   top: 14px;
   left: 14px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
   padding: 6px 14px;
   border-radius: 30px;
   font-size: 0.75rem;
@@ -449,7 +455,6 @@ body.light-mode .nav-links a:hover {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
-  /*text-shadow: 0 0 10px rgba(255,255,255,0.2);*/
 }
 
 /* Animate heading when section comes into view */
