@@ -11,7 +11,9 @@ title: Projekty
     vytvořil a spoluprácích s cizími projekty, kterých jsem se někdy podílel.
   </p>
 
+  <!-- ==================================== -->
   <!-- KARETNÍ & DESKOVÉ HRY -->
+  <!-- ==================================== -->
 
   <div class="project-section">
     <div class="section-header">
@@ -19,14 +21,10 @@ title: Projekty
     </div>
 
     <div class="project-grid">
-
       <a href="/projects/bang.html" class="project-card reveal">
         <div class="card-image">
-          <div class="tags">
-            <span class="tag card-game">Karetní hra</span>
-            <span class="tag expansion">Rozšíření</span>
-          </div>
           <img src="/images/bang_logo.png">
+          <span class="tag card-game">Karetní hra</span>
         </div>
         <div class="project-content">
           <h3>Bang</h3>
@@ -36,11 +34,9 @@ title: Projekty
 
       <a href="/projects/paradox.html" class="project-card reveal">
         <div class="card-image">
-          <div class="tags">
-            <span class="tag card-game">Karetní hra</span>
-            <span class="tag release">Plné vydání</span>
-          </div>
           <img src="/images/logo_paradox.png">
+          <span class="tag card-game">Karetní hra</span>
+          <span class="tag expansion">Rozšíření</span>
         </div>
         <div class="project-content">
           <h3>Paradox</h3>
@@ -50,22 +46,20 @@ title: Projekty
 
       <a href="/projects/smashup.html" class="project-card reveal">
         <div class="card-image">
-          <div class="tags">
-            <span class="tag card-game">Karetní hra</span>
-            <span class="tag expansion">Rozšíření</span>
-          </div>
           <img src="/images/smashup_logo.png">
+          <span class="tag card-game">Karetní hra</span>
         </div>
         <div class="project-content">
           <h3>Hustá Mela</h3>
           <p>Rozšíření přinášející nové frakce, které jsem nadesignoval.</p>
         </div>
       </a>
-
     </div>
   </div>
 
+  <!-- ==================================== -->
   <!-- VIDEOHRY -->
+  <!-- ==================================== -->
 
   <div class="project-section">
     <div class="section-header">
@@ -73,14 +67,10 @@ title: Projekty
     </div>
 
     <div class="project-grid">
-
       <a href="/projects/league.html" class="project-card reveal">
         <div class="card-image">
-          <div class="tags">
-            <span class="tag video-game">Videohra</span>
-            <span class="tag modification">Modifikace</span>
-          </div>
           <img src="/images/logo_leagueoflegends.png">
+          <span class="tag video-game">Videohra</span>
         </div>
         <div class="project-content">
           <h3>League of Legends</h3>
@@ -90,11 +80,8 @@ title: Projekty
 
       <a href="/projects/minecraft.html" class="project-card reveal">
         <div class="card-image">
-          <div class="tags">
-            <span class="tag video-game">Videohra</span>
-            <span class="tag map">Mapa</span>
-          </div>
           <img src="/images/logo_magical_arena.png">
+          <span class="tag video-game">Videohra</span>
           <img src="/images/logo_en.webp" class="flag-img" alt="English">
         </div>
         <div class="project-content">
@@ -102,11 +89,12 @@ title: Projekty
           <p>Mapa přinášející akční kit-PvP arénu pro mydlení se s kamarády!</p>
         </div>
       </a>
-
     </div>
   </div>
 
-  <!-- PROGRAMY -->
+  <!-- ==================================== -->
+  <!-- PROGRAMY & APLIKACE -->
+  <!-- ==================================== -->
 
   <div class="project-section">
     <div class="section-header">
@@ -116,11 +104,8 @@ title: Projekty
     <div class="project-grid">
       <a href="/projects/city-of-mist.html" class="project-card reveal">
         <div class="card-image">
-          <div class="tags">
-            <span class="tag program">Program</span>
-            <span class="tag ttrpg-game">TTRPG</span>
-          </div>
           <img src="/images/logo_magical_arena.png">
+          <span class="tag program">Program</span>
         </div>
         <div class="project-content">
           <h3>Tvorba deníku do City of Mist</h3>
@@ -130,7 +115,9 @@ title: Projekty
     </div>
   </div>
 
-  <!-- WEB -->
+  <!-- ==================================== -->
+  <!-- WEBY -->
+  <!-- ==================================== -->
 
   <div class="project-section">
     <div class="section-header">
@@ -140,10 +127,8 @@ title: Projekty
     <div class="project-grid">
       <a href="/projects/seven-wonders.html" class="project-card reveal">
         <div class="card-image">
-          <div class="tags">
-            <span class="tag web">Web</span>
-          </div>
           <img src="/images/logo_magical_arena.png">
+          <span class="tag web">Web</span>
           <img src="/images/logo_en.webp" class="flag-img" alt="English">
         </div>
         <div class="project-content">
@@ -154,7 +139,9 @@ title: Projekty
     </div>
   </div>
 
+  <!-- ==================================== -->
   <!-- PŘEKLADY -->
+  <!-- ==================================== -->
 
   <div class="project-section">
     <div class="section-header">
@@ -164,11 +151,8 @@ title: Projekty
     <div class="project-grid">
       <a href="/projects/modrovousova-nevesta.html" class="project-card reveal">
         <div class="card-image">
-          <div class="tags">
-            <span class="tag translation">Překlad</span>
-            <span class="tag ttrpg-game">TTRPG</span>
-          </div>
           <img src="/images/logo_magical_arena.png">
+          <span class="tag translation">Překlad</span>
         </div>
         <div class="project-content">
           <h3>Modrovousova Nevěsta</h3>
@@ -179,3 +163,31 @@ title: Projekty
   </div>
 
 </section>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+const sections = document.querySelectorAll(".project-section");
+
+function revealOnScroll() {
+  const windowHeight = window.innerHeight;
+
+  // Animate project cards
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < windowHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+
+  // Animate section headers
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    if(top < windowHeight - 100) {
+      section.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+</script>
