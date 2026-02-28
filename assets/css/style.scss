@@ -370,31 +370,25 @@ body.light-mode .nav-links a:hover {
    TAGS
 ================================= */
 
-.tags {
+.tag {
   position: absolute;
   top: 14px;
   left: 14px;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  z-index: 2;
-}
-
-.tag {
   padding: 6px 14px;
   border-radius: 30px;
   font-size: 0.75rem;
   font-weight: 600;
   color: white;
-  white-space: nowrap;
 }
 
+/* Typy projektů */
 .card-game { background: #a855f7; }
 .video-game { background: #6366f1; }
 .program { background: #10b981; }
 .web { background: #3b82f6; }
 .ttrpg-game { background: #55f7b9; }
 
+/* Status tagy */
 .translation { background: #f59e0b; }
 .release { background: #f7ae55; }
 .expansion { background: #f50bed; }
@@ -415,7 +409,6 @@ body.light-mode .nav-links a:hover {
   border-radius: 4px;
   box-shadow: 0 0 6px rgba(0,0,0,0.2);
   transition: transform 0.3s ease;
-  z-index: 2;
 }
 
 .project-card:hover .flag-img {
@@ -463,16 +456,23 @@ body.light-mode .nav-links a:hover {
   opacity: 0;
   transform: translateY(40px);
   transition: all 0.8s ease-out;
+  /*text-shadow: 0 0 10px rgba(255,255,255,0.2);*/
 }
 
+/* Animate heading when section comes into view */
 .project-section.active .section-header h2 {
   opacity: 1;
   transform: translateY(0);
   animation: gradientShift 6s ease infinite;
 }
 
+/* Gradient animation */
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+.project-card:hover .flag-img {
+  transform: scale(1.2);
 }
