@@ -3,17 +3,116 @@ layout: default
 title: Home
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>My GitHub Page</title>
-</head>
-<body>
+<section class="hero-section">
 
-  <h1>Hello world!</h1>
-  <p>This is my first GitHub Pages site.</p>
-  <a href="bang.html"><img src="images/logo_bang.png" class="profile-img"></a>
+  <div class="hero-content">
+    <h1 class="hero-title">
+      <span class="hello">Ahoj,</span>
+      <span class="name">jsem Michal</span>
+    </h1>
 
-</body>
-</html>
+    <p class="hero-text">
+      Jsem herní designér, programátor a kreativní nadšenec do světa fantazie.
+      Miluji tvorbu vlastních projektů — od karetních her přes weby až po nástroje pro TTRPG.
+    </p>
+
+    <p class="hero-text">
+      Baví mě kombinovat estetiku s mechanikou. Vytvářím věci, které nejsou jen funkční,
+      ale mají vlastní duši, atmosféru a dynamiku.
+    </p>
+
+    <p class="hero-text">
+      Pokud tě baví moderní design, herní systémy nebo kreativní projekty,
+      jsi tu správně.
+    </p>
+
+    <a href="/about" class="primary-button">
+      Rád bych tě poznal blíž
+    </a>
+  </div>
+
+  <div class="hero-image">
+    <img src="/images/your_photo.jpg" alt="Michal">
+  </div>
+
+</section>
+
+
+<!-- ==================================== -->
+<!-- VYBRANÉ PROJEKTY -->
+<!-- ==================================== -->
+
+<section class="project-section featured-section">
+
+  <div class="section-header">
+    <h2>Vybrané projekty</h2>
+  </div>
+
+  <div class="project-grid">
+
+    <a href="/projects/bang.html" class="project-card reveal">
+      <div class="card-image">
+        <img src="/images/bang_logo.png">
+        <div class="tags-container">
+          <span class="tag card-game">Karetní hra</span>
+          <span class="tag expansion">Rozšíření</span>
+        </div>
+      </div>
+      <div class="project-content">
+        <h3>Za Hranicí Prérie</h3>
+        <p>Rozšíření do hry BANG! přinášející nové postavy, karty a mechaniky.</p>
+      </div>
+    </a>
+
+    <a href="/projects/paradox.html" class="project-card reveal">
+      <div class="card-image">
+        <img src="/images/logo_paradox.png">
+        <div class="tags-container">
+          <span class="tag card-game">Karetní hra</span>
+          <span class="tag release">Plné Vydání</span>
+        </div>
+      </div>
+      <div class="project-content">
+        <h3>Paradox</h3>
+        <p>Prototyp mé vlastní karetní hry.</p>
+      </div>
+    </a>
+
+    <a href="/projects/seven-wonders.html" class="project-card reveal">
+      <div class="card-image">
+        <img src="/images/logo_seven_wonders.png">
+        <div class="tags-container">
+          <span class="tag web">Web</span>
+          <span class="tag video-game">Videohra</span>
+        </div>
+        <img src="/images/logo_en.webp" class="flag-img" alt="English">
+      </div>
+      <div class="project-content">
+        <h3>Seven Wonders</h3>
+        <p>Návod na hraní Anivie ve hře League of Legends</p>
+      </div>
+    </a>
+
+    <a href="/projects/city-of-mist.html" class="project-card reveal">
+      <div class="card-image">
+        <img src="/images/logo_city_of_mist_denik.png">
+        <div class="tags-container">
+          <span class="tag program">Program</span>
+          <span class="tag ttrpg-game">TTRPG</span>
+        </div>
+      </div>
+      <div class="project-content">
+        <h3>Tvorba deníku do City of Mist</h3>
+        <p>Nástroj pro tvorbu a správu herních deníků pro RPG systém City of Mist.</p>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="projects-button-wrapper">
+    <a href="/projects" class="secondary-button">
+      Všechny projekty
+    </a>
+  </div>
+
+</section>
