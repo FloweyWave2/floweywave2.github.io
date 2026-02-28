@@ -485,3 +485,139 @@ body.light-mode .nav-links a:hover {
 .project-card:hover .flag-img {
   transform: scale(1.2);
 }
+
+/* =====================================
+   7) HERO PAGE
+===================================== */
+
+.hero-section {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 120px;
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-image {
+    order: -1;
+  }
+}
+
+/* TITLE */
+
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 900;
+  margin-bottom: 30px;
+  line-height: 1.1;
+}
+
+.hero-title .hello {
+  display: block;
+  color: #a855f7;
+}
+
+.hero-title .name {
+  display: block;
+  background: linear-gradient(270deg, #a855f7, #6366f1, #f472b6, #a855f7);
+  background-size: 400% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* TEXT */
+
+.hero-text p {
+  color: #9ca3af;
+  margin-bottom: 18px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+body.light-mode .hero-text p {
+  color: #374151;
+}
+
+/* IMAGE */
+
+.hero-image img {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 24px;
+  border: 1px solid rgba(168,85,247,0.3);
+  box-shadow: 0 25px 60px rgba(168,85,247,0.25);
+  transition: transform 0.4s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.03);
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+.primary-button,
+.secondary-button {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.primary-button {
+  background: linear-gradient(90deg, #a855f7, #6366f1);
+  color: white;
+  margin-top: 20px;
+}
+
+.primary-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(168,85,247,0.4);
+}
+
+.secondary-button {
+  border: 1px solid rgba(168,85,247,0.4);
+  color: #a855f7;
+}
+
+.secondary-button:hover {
+  background: rgba(168,85,247,0.1);
+  transform: translateY(-3px);
+}
+
+.center-button {
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* =====================================
+   HOME PROJECTS SECTION
+===================================== */
+
+.home-projects {
+  margin-top: 40px;
+}
+
+.home-projects .project-grid {
+  margin-top: 40px;
+}
+
+/* LIGHT MODE ADJUSTMENTS */
+
+body.light-mode .primary-button {
+  box-shadow: none;
+}
+
+body.light-mode .secondary-button {
+  border-color: #a855f7;
+}
