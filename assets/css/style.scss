@@ -370,10 +370,17 @@ body.light-mode .nav-links a:hover {
    TAGS
 ================================= */
 
-.tag {
+.tags-container {
   position: absolute;
   top: 14px;
   left: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  display: inline-block;
   padding: 6px 14px;
   border-radius: 30px;
   font-size: 0.75rem;
