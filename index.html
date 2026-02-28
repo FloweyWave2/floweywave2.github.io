@@ -1,117 +1,150 @@
 ---
 layout: default
-title: Home
+title: Domů
 ---
 
 <section class="hero-section">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h1 class="hero-title">
+                <span class="gradient-text">Ahoj</span>, jmenuji se Michal
+            </h1>
+            <p class="hero-subtitle">Vítej na mé webovce :)</p>
 
-  <div class="hero-content">
-    <h1 class="hero-title">
-      <span class="hello">Ahoj</span>,
-      <span class="normal-text"> jmenuji se Michal. Vítej na mé webovce</span>
-    </h1>
+            <div class="hero-description">
+                <p>
+                    Jsem tvůrce her, designér, programátor a kreativní duše, která miluje
+                    budování vlastních světů – ať už jde o karetní hry, videohry,
+                    TTRPG nástroje nebo webové projekty.
+                </p>
 
-    <div class="hero-text">
-      <p>
-        Jsem tvůrce her, designér, programátor a nadšenec do světa fantazie.
-        Miluji budování vlastních světů, mechanik a systémů, které dávají hráčům
-        silné zážitky.
-      </p>
+                <p>
+                    Fascinuje mě kombinace mechanik, estetiky a emocí.
+                    Rád tvořím věci, které dávají smysl, mají styl
+                    a zároveň přinášejí hráčům nebo uživatelům něco navíc.
+                </p>
 
-      <p>
-        Věnuji se karetním hrám, TTRPG projektům, webovým aplikacím i herním modifikacím.
-        Baví mě propojovat kreativitu s technologií a dávat projektům osobitý styl.
-      </p>
+                <p>
+                    Tenhle web je moje digitální laboratoř.
+                    Místo, kde ukládám projekty, nápady a věci,
+                    které mi dávají radost.
+                </p>
+            </div>
 
-      <p>
-        Pokud tě baví originální nápady, atmosféra a projekty s osobností,
-        jsi tu správně.
-      </p>
+            <a href="/about" class="primary-button">
+                Rád bych tě poznal blíž
+            </a>
+        </div>
+
+        <div class="hero-image">
+            <img src="/images/profile.png" alt="Michal profile photo">
+        </div>
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- VYBRANÉ PROJEKTY -->
+<!-- ===================================================== -->
+
+<section class="featured-projects project-section">
+    <div class="section-header">
+        <h2>Vybrané projekty</h2>
     </div>
 
-    <a href="/about" class="primary-button">
-      Rád bych tě poznal blíž
-    </a>
-  </div>
+    <div class="project-grid">
 
-  <div class="hero-image">
-    <img src="/images/profile.png" alt="Michal">
-  </div>
+        <!-- BANG -->
+        <a href="/projects/bang.html" class="project-card reveal">
+            <div class="card-image">
+                <img src="/images/bang_logo.png">
+                <div class="tags-container">
+                    <span class="tag card-game">Karetní hra</span>
+                    <span class="tag expansion">Rozšíření</span>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3>Za Hranicí Prérie</h3>
+                <p>Rozšíření do hry BANG! přinášející nové postavy, karty a mechaniky.</p>
+            </div>
+        </a>
 
+        <!-- PARADOX -->
+        <a href="/projects/paradox.html" class="project-card reveal">
+            <div class="card-image">
+                <img src="/images/logo_paradox.png">
+                <div class="tags-container">
+                    <span class="tag card-game">Karetní hra</span>
+                    <span class="tag release">Plné Vydání</span>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3>Paradox</h3>
+                <p>Prototyp mé vlastní karetní hry.</p>
+            </div>
+        </a>
+
+        <!-- SEVEN WONDERS -->
+        <a href="/projects/seven-wonders.html" class="project-card reveal">
+            <div class="card-image">
+                <img src="/images/logo_seven_wonders.png">
+                <div class="tags-container">
+                    <span class="tag web">Web</span>
+                    <span class="tag video-game">Videohra</span>
+                </div>
+                <img src="/images/logo_en.webp" class="flag-img" alt="English">
+            </div>
+            <div class="project-content">
+                <h3>Seven Wonders</h3>
+                <p>Návod na hraní Anivie ve hře League of Legends</p>
+            </div>
+        </a>
+
+        <!-- CITY OF MIST -->
+        <a href="/projects/city-of-mist.html" class="project-card reveal">
+            <div class="card-image">
+                <img src="/images/logo_city_of_mist_denik.png">
+                <div class="tags-container">
+                    <span class="tag program">Program</span>
+                    <span class="tag ttrpg-game">TTRPG</span>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3>Tvorba deníku do City of Mist</h3>
+                <p>Nástroj pro tvorbu a správu herních deníků pro RPG systém City of Mist.</p>
+            </div>
+        </a>
+
+    </div>
+
+    <div class="center-button">
+        <a href="/projects" class="secondary-button">
+            Všechny projekty
+        </a>
+    </div>
 </section>
 
+<script>
+const reveals = document.querySelectorAll(".reveal");
+const sections = document.querySelectorAll(".project-section");
 
-<section class="home-projects">
+function revealOnScroll() {
+    const windowHeight = window.innerHeight;
 
-  <div class="home-title">
-    <h2>Vybrané projekty</h2>
-  </div>
+    reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < windowHeight - 100) {
+            el.classList.add("active");
+        }
+    });
 
-  <div class="project-grid">
+    sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if(top < windowHeight - 100) {
+            section.classList.add("active");
+        }
+    });
+}
 
-    <a href="/projects/bang.html" class="project-card active">
-      <div class="card-image">
-        <img src="/images/bang_logo.png">
-        <div class="tags-container">
-          <span class="tag card-game">Karetní hra</span>
-          <span class="tag expansion">Rozšíření</span>
-        </div>
-      </div>
-      <div class="project-content">
-        <h3>Za Hranicí Prérie</h3>
-        <p>Rozšíření do hry BANG! přinášející nové postavy, karty a mechaniky.</p>
-      </div>
-    </a>
-
-    <a href="/projects/paradox.html" class="project-card active">
-      <div class="card-image">
-        <img src="/images/logo_paradox.png">
-        <div class="tags-container">
-          <span class="tag card-game">Karetní hra</span>
-          <span class="tag release">Plné Vydání</span>
-        </div>
-      </div>
-      <div class="project-content">
-        <h3>Paradox</h3>
-        <p>Prototyp mé vlastní karetní hry.</p>
-      </div>
-    </a>
-
-    <a href="/projects/seven-wonders.html" class="project-card active">
-      <div class="card-image">
-        <img src="/images/logo_seven_wonders.png">
-        <div class="tags-container">
-          <span class="tag web">Web</span>
-          <span class="tag video-game">Videohra</span>
-        </div>
-        <img src="/images/logo_en.webp" class="flag-img" alt="English">
-      </div>
-      <div class="project-content">
-        <h3>Seven Wonders</h3>
-        <p>Návod na hraní Anivie ve hře League of Legends</p>
-      </div>
-    </a>
-
-    <a href="/projects/city-of-mist.html" class="project-card active">
-      <div class="card-image">
-        <img src="/images/logo_city_of_mist_denik.png">
-        <div class="tags-container">
-          <span class="tag program">Program</span>
-          <span class="tag ttrpg-game">TTRPG</span>
-        </div>
-      </div>
-      <div class="project-content">
-        <h3>Tvorba deníku do City of Mist</h3>
-        <p>Nástroj pro tvorbu a správu herních deníků pro RPG systém City of Mist.</p>
-      </div>
-    </a>
-
-  </div>
-
-  <div class="center-button">
-    <a href="/projects" class="secondary-button">
-      Všechny projekty
-    </a>
-  </div>
-
-</section>
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+</script>
