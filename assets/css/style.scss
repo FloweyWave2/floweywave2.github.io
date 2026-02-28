@@ -370,15 +370,13 @@ body.light-mode .nav-links a:hover {
    TAGS
 ================================= */
 
-/* Wrapper pro více tagů */
-.tag-container {
+.tags {
   position: absolute;
   top: 14px;
   left: 14px;
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  max-width: 75%;
   z-index: 2;
 }
 
@@ -391,14 +389,12 @@ body.light-mode .nav-links a:hover {
   white-space: nowrap;
 }
 
-/* Typy projektů */
 .card-game { background: #a855f7; }
 .video-game { background: #6366f1; }
 .program { background: #10b981; }
 .web { background: #3b82f6; }
 .ttrpg-game { background: #55f7b9; }
 
-/* Status tagy */
 .translation { background: #f59e0b; }
 .release { background: #f7ae55; }
 .expansion { background: #f50bed; }
@@ -445,7 +441,7 @@ body.light-mode .nav-links a:hover {
 }
 
 /* ===============================
-   SECTION HEADERS
+   SECTION HEADERS - BOLD UPGRADE
 ================================= */
 
 .section-header {
