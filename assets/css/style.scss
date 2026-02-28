@@ -584,12 +584,51 @@ BUTTONS
 
 .secondary-button:hover {
     background: rgba(168,85,247,0.1);
-    transform: translateY(-3px);
+    transform: scale(1.06);
 }
 
 .center-button {
     text-align: center;
     margin-top: 50px;
+}
+
+/* =========================================================
+PLAYFUL PRIMARY BUTTON HOVER EFFECT
+========================================================= */
+
+.playful-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.playful-button span {
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Default text visible */
+.playful-button .text-hover {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    white-space: nowrap;
+}
+
+/* Hover state */
+.playful-button:hover {
+    transform: scale(1.06);
+}
+
+/* Hide default text on hover */
+.playful-button:hover .text-default {
+    opacity: 0;
+}
+
+/* Show cute text */
+.playful-button:hover .text-hover {
+    opacity: 1;
 }
 
 /* =========================================================
