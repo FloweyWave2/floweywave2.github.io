@@ -492,8 +492,7 @@ body.light-mode .nav-links a:hover {
 
 .hero-section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
   margin-bottom: 140px;
   max-width: 1400px;
@@ -509,29 +508,28 @@ body.light-mode .nav-links a:hover {
 
   .hero-image {
     order: -1;
+    justify-content: center;
   }
 }
 
 /* TITLE */
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 3.2rem;
   font-weight: 900;
   margin-bottom: 30px;
   white-space: nowrap;
 }
 
-/* Glowing animated gradient */
+/* Gradient only — no glow */
 .hero-title .hello {
   background: linear-gradient(270deg, #a855f7, #f472b6, #6366f1, #a855f7);
   background-size: 600% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: gradientShift 8s ease infinite;
-  text-shadow: 0 0 25px rgba(168,85,247,0.6);
 }
 
-/* Normal white text */
 .hero-title .normal-text {
   color: white;
 }
@@ -561,16 +559,12 @@ body.light-mode .hero-text p {
 }
 
 .hero-image img {
-  width: 100%;
-  max-width: 450px;
+  width: 340px;
+  max-width: 100%;
   border-radius: 24px;
   border: 1px solid rgba(168,85,247,0.3);
-  box-shadow: 0 30px 80px rgba(168,85,247,0.3);
+  box-shadow: 0 25px 60px rgba(168,85,247,0.25);
   transition: transform 0.4s ease;
-}
-
-.hero-image img:hover {
-  transform: scale(1.04);
 }
 
 /* =====================================
@@ -588,24 +582,14 @@ body.light-mode .hero-text p {
 }
 
 .primary-button {
-  position: relative;
   background: linear-gradient(90deg, #a855f7, #6366f1);
   color: white;
   margin-top: 20px;
 }
 
-.primary-button::before {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: 18px;
-  background: radial-gradient(circle, rgba(168,85,247,0.6) 0%, rgba(168,85,247,0.2) 40%, transparent 70%);
-  z-index: -1;
-  filter: blur(15px);
-}
-
 .primary-button:hover {
-  transform: translateY(-4px);
+  transform: scale(1.07);
+  box-shadow: 0 0 40px rgba(168,85,247,0.6);
 }
 
 .secondary-button {
@@ -615,7 +599,7 @@ body.light-mode .hero-text p {
 
 .secondary-button:hover {
   background: rgba(168,85,247,0.1);
-  transform: translateY(-3px);
+  transform: scale(1.05);
 }
 
 .center-button {
@@ -631,18 +615,13 @@ body.light-mode .hero-text p {
   margin-top: 60px;
 }
 
-.home-section-header h2 {
+.home-title h2 {
   font-size: 2.5rem;
   font-weight: 900;
-  background: linear-gradient(270deg, #a855f7, #f472b6, #6366f1, #a855f7);
-  background-size: 600% 100%;
+  margin-bottom: 40px;
+  background: linear-gradient(270deg, #a855f7, #f472b6, #6366f1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientShift 10s ease infinite;
-}
-
-.home-projects .project-grid {
-  margin-top: 50px;
 }
 
 /* =====================================
