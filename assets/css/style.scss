@@ -486,150 +486,124 @@ body.light-mode .nav-links a:hover {
   transform: scale(1.2);
 }
 
-/* =====================================
-   HERO SECTION
-===================================== */
+/* =========================================================
+HERO SECTION
+========================================================= */
 
 .hero-section {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  margin-bottom: 140px;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
+    margin-bottom: 120px;
 }
 
-@media (max-width: 1000px) {
-  .hero-section {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero-image {
-    order: -1;
-    justify-content: center;
-  }
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap;
 }
 
-/* TITLE */
+.hero-text {
+    flex: 1;
+    min-width: 320px;
+}
 
 .hero-title {
-  font-size: 3.2rem;
-  font-weight: 900;
-  margin-bottom: 30px;
-  white-space: nowrap;
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 10px;
 }
 
-/* Gradient only — no glow */
-.hero-title .hello {
-  background: linear-gradient(270deg, #a855f7, #f472b6, #6366f1, #a855f7);
-  background-size: 600% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientShift 8s ease infinite;
+.gradient-text {
+    background: linear-gradient(270deg, #a855f7, #f472b6, #6366f1, #f472b6);
+    background-size: 600% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 6s ease infinite;
 }
 
-.hero-title .normal-text {
-  color: white;
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #9ca3af;
+    margin-bottom: 30px;
 }
 
-body.light-mode .hero-title .normal-text {
-  color: #111827;
+.hero-description p {
+    margin-bottom: 16px;
+    line-height: 1.6;
+    color: #d1d5db;
 }
-
-/* TEXT */
-
-.hero-text p {
-  color: #9ca3af;
-  margin-bottom: 18px;
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
-
-body.light-mode .hero-text p {
-  color: #374151;
-}
-
-/* IMAGE */
 
 .hero-image {
-  display: flex;
-  justify-content: flex-end;
+    flex: 0 0 350px;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-image img {
-  width: 340px;
-  max-width: 100%;
-  border-radius: 24px;
-  border: 1px solid rgba(168,85,247,0.3);
-  box-shadow: 0 25px 60px rgba(168,85,247,0.25);
-  transition: transform 0.4s ease;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 20px;
+    border: 1px solid rgba(168,85,247,0.3);
+    box-shadow: 0 20px 60px rgba(168,85,247,0.25);
+    transition: transform 0.4s ease;
 }
 
-/* =====================================
-   BUTTONS
-===================================== */
+.hero-image img:hover {
+    transform: scale(1.05);
+}
+
+/* =========================================================
+BUTTONS
+========================================================= */
 
 .primary-button,
 .secondary-button {
-  display: inline-block;
-  padding: 14px 30px;
-  border-radius: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 .primary-button {
-  background: linear-gradient(90deg, #a855f7, #6366f1);
-  color: white;
-  margin-top: 20px;
+    background: linear-gradient(90deg, #a855f7, #6366f1);
+    color: white;
+    margin-top: 20px;
 }
 
 .primary-button:hover {
-  transform: scale(1.07);
-  box-shadow: 0 0 40px rgba(168,85,247,0.6);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(168,85,247,0.4);
 }
 
 .secondary-button {
-  border: 1px solid rgba(168,85,247,0.4);
-  color: #a855f7;
+    border: 1px solid rgba(168,85,247,0.5);
+    color: #a855f7;
 }
 
 .secondary-button:hover {
-  background: rgba(168,85,247,0.1);
-  transform: scale(1.05);
+    background: rgba(168,85,247,0.1);
+    transform: translateY(-3px);
 }
 
 .center-button {
-  text-align: center;
-  margin-top: 60px;
+    text-align: center;
+    margin-top: 50px;
 }
 
-/* =====================================
-   HOME PROJECTS SECTION
-===================================== */
+/* =========================================================
+LIGHT MODE SUPPORT
+========================================================= */
 
-.home-projects {
-  margin-top: 60px;
+body.light-mode .hero-subtitle {
+    color: #6b7280;
 }
 
-.home-title h2 {
-  font-size: 2.5rem;
-  font-weight: 900;
-  margin-bottom: 40px;
-  background: linear-gradient(270deg, #a855f7, #f472b6, #6366f1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+body.light-mode .hero-description p {
+    color: #374151;
 }
 
-/* =====================================
-   GRADIENT ANIMATION
-===================================== */
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+body.light-mode .hero-image img {
+    box-shadow: 0 20px 60px rgba(99,102,241,0.2);
 }
