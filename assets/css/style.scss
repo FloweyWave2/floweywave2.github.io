@@ -573,8 +573,8 @@ BUTTONS
 }
 
 .primary-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(168,85,247,0.4);
+    transform: scale(1.06);
+    box-shadow: 0 0px 25px rgba(168,85,247,0.4);
 }
 
 .secondary-button {
