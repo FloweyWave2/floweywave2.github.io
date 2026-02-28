@@ -377,6 +377,7 @@ body.light-mode .nav-links a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  z-index: 2; /* zajistí, že tagy budou nad obrázkem */
 }
 
 .tag {
@@ -386,6 +387,7 @@ body.light-mode .nav-links a:hover {
   font-size: 0.75rem;
   font-weight: 600;
   color: white;
+  white-space: nowrap; /* zabrání zalamování textu uvnitř tagu */
 }
 
 /* Typy projektů */
