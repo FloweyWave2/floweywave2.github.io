@@ -570,11 +570,27 @@ BUTTONS
     background: linear-gradient(90deg, #a855f7, #6366f1);
     color: white;
     margin-top: 20px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
 }
 
+/* Skryjeme původní text při hoveru */
 .primary-button:hover {
     transform: scale(1.06);
     box-shadow: 0 0px 25px rgba(168,85,247,0.4);
+    color: transparent;
+}
+
+/* Nový text */
+.primary-button:hover::after {
+    content: "Aww, vážně? ^w^";
+    color: white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
 }
 
 .secondary-button {
