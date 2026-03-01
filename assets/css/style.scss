@@ -628,31 +628,29 @@ body.light-mode .hero-image img {
 
 
 /* =========================================================
-PERSONA PORTAL
+   PERSONA PORTAL
 ========================================================= */
 
 .persona-portal {
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 1400px;
-    margin: auto;
-    padding: 40px;
+    padding: 40px 20px;
     text-align: center;
 }
 
-.persona-header {
-    margin-bottom: 60px;
+.portal-header {
+    margin-bottom: 50px;
 }
 
-.persona-title {
-    font-size: 2.8rem;
+.portal-title {
+    font-size: 2.6rem;
     font-weight: 900;
     margin-bottom: 10px;
 }
 
-.persona-subtitle {
+.portal-subtitle {
     color: #9ca3af;
     font-size: 1.1rem;
 }
@@ -662,31 +660,31 @@ PERSONA PORTAL
 .persona-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* CARD */
 
 .persona-card {
-    position: relative;
     text-decoration: none;
     color: inherit;
     background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(168,85,247,0.2);
-    border-radius: 24px;
-    overflow: hidden;
+    border: 1px solid rgba(168,85,247,0.25);
+    border-radius: 20px;
     backdrop-filter: blur(14px);
-    transition: all 0.5s ease;
+    overflow: hidden;
+    transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    min-height: 420px;
+    height: 100%;
 }
 
 .persona-card:hover {
-    transform: translateY(-12px) scale(1.04);
-    border-color: rgba(168,85,247,0.7);
-    box-shadow: 0 20px 60px rgba(168,85,247,0.35);
+    transform: translateY(-10px) scale(1.03);
+    border-color: rgba(168,85,247,0.6);
+    box-shadow: 0 20px 50px rgba(168,85,247,0.25);
 }
 
 /* IMAGE */
@@ -694,43 +692,46 @@ PERSONA PORTAL
 .persona-image {
     position: relative;
     height: 260px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
+    background: radial-gradient(circle at center, rgba(168,85,247,0.15), transparent 70%);
 }
 
 .persona-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.4s ease, transform 0.6s ease;
     position: absolute;
-    max-height: 220px;
-    max-width: 80%;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    top: 0;
+    left: 0;
 }
 
 .img-hover {
     opacity: 0;
-    transform: scale(1.05);
 }
 
 .persona-card:hover .img-default {
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(1.05);
 }
 
 .persona-card:hover .img-hover {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 /* CONTENT */
 
 .persona-content {
-    padding: 30px;
+    padding: 24px;
 }
 
 .persona-content h2 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    background: linear-gradient(90deg, #a855f7, #6366f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .persona-content p {
@@ -739,32 +740,14 @@ PERSONA PORTAL
     line-height: 1.5;
 }
 
-/* COLOR ACCENTS PER PERSONA */
-
-.creator:hover {
-    box-shadow: 0 20px 60px rgba(99,102,241,0.35);
-}
-
-.philosopher:hover {
-    box-shadow: 0 20px 60px rgba(244,114,182,0.35);
-}
-
-.nerd:hover {
-    box-shadow: 0 20px 60px rgba(16,185,129,0.35);
-}
-
-/* LIGHT MODE SUPPORT */
+/* LIGHT MODE */
 
 body.light-mode .persona-card {
-    background: white;
-    border: 1px solid #e5e7eb;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid rgba(168,85,247,0.3);
 }
 
-body.light-mode .persona-card:hover {
-    box-shadow: 0 20px 60px rgba(99,102,241,0.2);
-}
-
-body.light-mode .persona-subtitle {
+body.light-mode .portal-subtitle {
     color: #6b7280;
 }
 
@@ -772,16 +755,24 @@ body.light-mode .persona-content p {
     color: #374151;
 }
 
+body.light-mode .persona-card:hover {
+    box-shadow: 0 20px 50px rgba(99,102,241,0.2);
+}
+
 /* RESPONSIVE */
 
-@media (max-width: 1100px) {
+@media (max-width: 1000px) {
+    .persona-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
     .persona-grid {
         grid-template-columns: 1fr;
-        gap: 30px;
     }
 
     .persona-portal {
-        height: auto;
         padding-top: 100px;
         padding-bottom: 100px;
     }
