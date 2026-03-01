@@ -584,7 +584,6 @@ BUTTONS
 
 /* Nový text */
 .primary-button:hover::after {
-    background: linear-gradient(90deg, #6366f1, #a855f7);
     content: "Aww, vážně? ^w^";
     color: white;
     position: absolute;
