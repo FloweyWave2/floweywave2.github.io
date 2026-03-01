@@ -787,3 +787,139 @@ body.light-mode .persona-card:hover {
         padding-bottom: 100px;
     }
 }
+
+
+
+
+
+
+/* =========================================
+CREATOR ABOUT ME PAGE
+========================================= */
+
+.about-hero {
+    margin: 100px auto;
+    max-width: 1300px;
+    padding: 0 40px;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 320px;
+}
+
+.about-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+    line-height: 1.7;
+    color: #d1d5db;
+}
+
+.about-image {
+    flex: 0 0 350px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid rgba(168,85,247,0.3);
+    box-shadow: 0 20px 60px rgba(168,85,247,0.25);
+    transition: transform 0.4s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+}
+
+/* SKILLS GRID */
+
+.skills-section {
+    max-width: 1300px;
+    margin: 100px auto;
+    padding: 0 40px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 30px;
+}
+
+.skill-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(168,85,247,0.2);
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+.skill-card:hover {
+    transform: translateY(-8px) scale(1.05);
+    border-color: rgba(168,85,247,0.6);
+    box-shadow: 0 15px 40px rgba(168,85,247,0.25);
+}
+
+.skill-card img {
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+.skill-card span {
+    font-weight: 600;
+}
+
+/* TIMELINE */
+
+.timeline {
+    max-width: 900px;
+    margin: auto;
+}
+
+.timeline-item {
+    margin-bottom: 40px;
+    padding: 25px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 16px;
+    border: 1px solid rgba(168,85,247,0.2);
+    transition: 0.4s ease;
+    transform: translateY(40px);
+    opacity: 0;
+}
+
+.timeline-item.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.timeline-item h3 {
+    margin-bottom: 10px;
+}
+
+/* LIGHT MODE SUPPORT */
+
+body.light-mode .about-text p {
+    color: #374151;
+}
+
+body.light-mode .skill-card {
+    background: white;
+}
+
+body.light-mode .timeline-item {
+    background: white;
+}
