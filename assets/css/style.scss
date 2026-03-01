@@ -793,137 +793,140 @@ body.light-mode .persona-card:hover {
 
 
 
-/* =========================================
-   CREATOR PAGE
-========================================= */
+/* ========================================
+   CREATOR PAGE (ISOLATED SAFE VERSION)
+======================================== */
 
-.creator-page {
-    max-width: 1300px;
+.creator-wrapper {
+    max-width: 1200px;
     margin: 100px auto;
-    padding: 0 40px;
+    padding: 0 30px;
 }
 
-.creator-hero-content {
+/* HERO */
+
+.creator-container {
     display: flex;
-    gap: 80px;
+    gap: 70px;
     align-items: center;
     flex-wrap: wrap;
 }
 
 .creator-text {
     flex: 1;
-    min-width: 320px;
+    min-width: 300px;
 }
 
 .creator-title {
-    font-size: 3rem;
+    font-size: 2.8rem;
     font-weight: 900;
     margin-bottom: 20px;
 }
 
-.creator-lead {
-    font-size: 1.2rem;
+.creator-subtitle {
     color: #9ca3af;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
 }
 
 .creator-description p {
     line-height: 1.7;
-    margin-bottom: 18px;
-    color: #d1d5db;
+    margin-bottom: 16px;
 }
 
 .creator-image {
-    flex: 0 0 360px;
+    flex: 0 0 340px;
 }
 
 .creator-image img {
     width: 100%;
-    border-radius: 24px;
-    border: 1px solid rgba(168,85,247,0.4);
-    box-shadow: 0 20px 80px rgba(168,85,247,0.35);
-    transition: transform 0.4s ease;
+    border-radius: 20px;
+    border: 1px solid rgba(168,85,247,0.3);
+    box-shadow: 0 20px 60px rgba(168,85,247,0.25);
+    transition: 0.4s ease;
 }
 
 .creator-image img:hover {
     transform: scale(1.05);
 }
 
-/* GLASS CARD */
-.glass-card {
+/* SECTIONS */
+
+.creator-section {
+    margin-top: 120px;
+}
+
+/* CARDS */
+
+.creator-glass,
+.creator-card {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(168,85,247,0.25);
     backdrop-filter: blur(14px);
     border-radius: 18px;
-    padding: 40px;
-    margin-bottom: 60px;
-    transition: all 0.4s ease;
+    padding: 35px;
+    transition: 0.4s ease;
 }
 
-.glass-card:hover {
+.creator-glass:hover,
+.creator-card:hover {
     border-color: rgba(168,85,247,0.6);
-    box-shadow: 0 20px 60px rgba(168,85,247,0.25);
+    box-shadow: 0 20px 60px rgba(168,85,247,0.2);
 }
 
-/* SKILLS */
-.skills-grid {
+/* SKILLS GRID */
+
+.creator-skill-grid {
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 40px;
-    margin-bottom: 80px;
 }
 
-.skill-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(168,85,247,0.25);
-    border-radius: 18px;
-    padding: 30px;
-    backdrop-filter: blur(14px);
-}
-
-.logo-grid {
+.creator-logos {
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 20px;
     margin: 20px 0;
 }
 
-.logo-grid img {
+.creator-logos img {
     height: 50px;
-    transition: transform 0.3s ease;
+    transition: 0.3s ease;
 }
 
-.logo-grid img:hover {
-    transform: scale(1.2);
+.creator-logos img:hover {
+    transform: scale(1.15);
 }
 
-.extra-skill {
-    margin-top: 10px;
-    font-weight: 600;
+.creator-extra {
     color: #a855f7;
+    font-weight: 600;
 }
 
-/* REVEAL ANIMATION */
+/* REVEAL */
+
 .reveal {
-    transform: translateY(60px);
     opacity: 0;
-    transition: all 0.8s ease;
+    transform: translateY(60px);
+    transition: 0.8s ease;
 }
 
 .reveal.active {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0);
 }
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
 
-    .creator-hero-content {
+@media (max-width: 900px) {
+
+    .creator-container {
         flex-direction: column;
         text-align: center;
+    }
+
+    .creator-skill-grid {
+        grid-template-columns: 1fr;
     }
 
     .creator-image {
@@ -931,17 +934,14 @@ body.light-mode .persona-card:hover {
     }
 }
 
-/* LIGHT MODE SUPPORT */
-body.light-mode .creator-description p {
-    color: #374151;
-}
+/* LIGHT MODE */
 
-body.light-mode .creator-lead {
+body.light-mode .creator-subtitle {
     color: #6b7280;
 }
 
-body.light-mode .glass-card,
-body.light-mode .skill-card {
+body.light-mode .creator-glass,
+body.light-mode .creator-card {
     background: rgba(255,255,255,0.8);
     border: 1px solid #e5e7eb;
 }
