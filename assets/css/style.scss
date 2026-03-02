@@ -946,125 +946,185 @@ body.light-mode .creator-card {
     border: 1px solid #e5e7eb;
 }
 
-/* ========================================
-   CREATOR PAGE RESTRUCTURE 2.0
-======================================== */
 
-/* FULL WIDTH TEXT */
-.full-width {
-    width: 100%;
-}
 
-/* ========================================
-   PILLAR TITLES (| MAGENTA DIVIDER)
-======================================== */
 
-.pillar-title {
-    font-size: 1.4rem;
+
+/* ===============================
+   VERTIKÁLNÍ DIVIDER U PODNADPISŮ
+================================= */
+.creator-description h2 {
+    display: flex;
+    align-items: center;
     font-weight: 700;
-    margin-top: 40px;
+    font-size: 1.4rem;
+    margin-top: 30px;
     margin-bottom: 12px;
-    padding-left: 18px;
-    position: relative;
 }
 
-.pillar-title::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 4px;
-    width: 6px;
-    height: 24px;
-    background: #d946ef;
-    border-radius: 4px;
+.creator-description .divider {
+    display: inline-block;
+    width: 8px;        /* tloušťka divideru */
+    height: 28px;      /* výška divideru */
+    background-color: #a855f7; /* magenta */
+    margin-right: 12px;
 }
 
-/* ========================================
-   SOFT ACCENT TEXT (light/dark safe)
-======================================== */
-
-.accent-soft {
+/* ===============================
+   HIGHLIGHT KLÍČOVÝCH SLOV
+================================= */
+.creator-description .highlight {
     font-weight: 600;
-    color: #e879f9;
+    color: #f472b6; /* kontrastní magenta pro light i dark mode */
 }
 
-body.light-mode .accent-soft {
-    color: #a21caf;
+/* ===============================
+   BOXÍKY PROGRAMOVACÍCH A ZNAČKOVACÍCH JAZYKŮ
+================================= */
+.creator-skills-side {
+    margin-top: 30px;
 }
 
-/* ========================================
-   SKILL GRID (4 PER ROW)
-======================================== */
+.creator-skills-side h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
 
-.skill-grid {
+.skill-box-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-top: 40px;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .skill-box {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(168,85,247,0.3);
-    border-radius: 16px;
-    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    backdrop-filter: blur(10px);
-    transition: 0.3s ease;
-}
-
-.skill-box:hover {
-    transform: translateY(-6px);
-    border-color: rgba(168,85,247,0.7);
-    box-shadow: 0 10px 30px rgba(168,85,247,0.2);
+    padding: 10px;
+    background: rgba(168,85,247,0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
 }
 
 .skill-box img {
     height: 50px;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
+    transition: transform 0.3s ease;
+}
+
+.skill-box:hover img {
+    transform: scale(1.2);
 }
 
 .skill-box span {
-    display: block;
-    font-weight: 600;
-    font-size: 0.95rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: inherit;
 }
 
-/* LIGHT MODE SUPPORT */
+/* LIGHT MODE */
+body.light-mode .creator-description .highlight {
+    color: #a855f7;
+}
 
 body.light-mode .skill-box {
-    background: rgba(255,255,255,0.8);
-    border: 1px solid #e5e7eb;
+    background: rgba(168,85,247,0.15);
 }
 
-body.light-mode .skill-box:hover {
-    box-shadow: 0 10px 30px rgba(99,102,241,0.2);
-}
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .creator-container {
+        flex-direction: column;
+        text-align: center;
+    }
 
-/* ========================================
-   REMOVE IMAGE FROM SECOND HERO
-======================================== */
+    .creator-image {
+        margin-top: 30px;
+    }
 
-.no-image .creator-container {
-    display: block;
-}
-
-.no-image .creator-text {
-    max-width: 100%;
-}
-
-/* ========================================
-   RESPONSIVE
-======================================== */
-
-@media (max-width: 1000px) {
-    .skill-grid {
+    .skill-box-row {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+/* ===============================
+   BOXÍKY PRO SOFTWARE A OFFICE
+   (stejné jako jazykové, jen menší margin)
+================================= */
+.creator-skills-side h2,
+.creator-skills-side h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
 
-@media (max-width: 600px) {
-    .skill-grid {
-        grid-template-columns: 1fr;
+.skill-box-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.skill-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    background: rgba(168,85,247,0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.skill-box img {
+    height: 50px;
+    margin-bottom: 6px;
+    transition: transform 0.3s ease;
+}
+
+.skill-box:hover img {
+    transform: scale(1.2);
+}
+
+.skill-box span {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: inherit;
+}
+
+/* LIGHT MODE */
+body.light-mode .skill-box {
+    background: rgba(168,85,247,0.15);
+}
+
+/* ===============================
+   HYPERLINKY - magnetické, bez podtržení
+================================= */
+.creator-description a {
+    color: #a855f7;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.creator-description a:hover {
+    transform: translateY(-2px);
+    text-shadow: 0 0 6px rgba(168,85,247,0.5);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .skill-box-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .creator-skills-side {
+        margin-top: 20px;
     }
 }
