@@ -49,7 +49,7 @@ permalink: /about/creator.html
                 </div>
             </div>
 
-            <div class="creator-image-right">
+            <div class="creator-right">
                 <img src="/images/profile.png" alt="Michael">
                 
                 <!-- PROGRAMOVACÍ A ZNAČKOVACÍ JAZYKY POD OBRAZKEM -->
@@ -221,3 +221,29 @@ permalink: /about/creator.html
     </section>
 
 </section>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+const sections = document.querySelectorAll(".project-section, .creator-hero, .creator-section");
+
+function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < windowHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+
+    sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        if(top < windowHeight - 100) {
+            section.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+</script>
