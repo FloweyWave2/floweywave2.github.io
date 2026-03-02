@@ -793,28 +793,36 @@ body.light-mode .persona-card:hover {
 
 
 
-/* ========================================
-   CREATOR PAGE (ISOLATED SAFE VERSION)
-======================================== */
+/* =========================================================
+   CREATOR PAGE - NEW LAYOUT
+========================================================= */
 
 .creator-wrapper {
     max-width: 1200px;
     margin: 100px auto;
     padding: 0 30px;
+    font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* HERO */
-
+/* HERO / TWO-COLUMN */
 .creator-container {
     display: flex;
-    gap: 70px;
-    align-items: center;
+    gap: 50px;
+    align-items: flex-start;
     flex-wrap: wrap;
+}
+
+.creator-container.single-column {
+    flex-direction: column;
 }
 
 .creator-text {
     flex: 1;
     min-width: 300px;
+}
+
+.creator-right {
+    flex: 0 0 360px;
 }
 
 .creator-title {
@@ -824,87 +832,128 @@ body.light-mode .persona-card:hover {
 }
 
 .creator-subtitle {
-    color: #9ca3af;
-    margin-bottom: 25px;
     font-size: 1.1rem;
+    margin-bottom: 25px;
+    color: #9ca3af;
+}
+
+.creator-description h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.divider {
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: #a855f7;
 }
 
 .creator-description p {
     line-height: 1.7;
     margin-bottom: 16px;
+    color: #d1d5db;
 }
 
-.creator-image {
-    flex: 0 0 340px;
+.highlight {
+    color: #a855f7;
+    font-weight: 600;
 }
 
+/* IMAGE */
 .creator-image img {
     width: 100%;
     border-radius: 20px;
     border: 1px solid rgba(168,85,247,0.3);
     box-shadow: 0 20px 60px rgba(168,85,247,0.25);
-    transition: 0.4s ease;
+    transition: transform 0.4s ease;
 }
 
 .creator-image img:hover {
     transform: scale(1.05);
 }
 
-/* SECTIONS */
-
-.creator-section {
-    margin-top: 120px;
+/* SKILLS */
+.creator-skills {
+    margin-top: 30px;
 }
 
-/* CARDS */
+.skill-group {
+    margin-bottom: 25px;
+}
 
-.creator-glass,
-.creator-card {
+.skill-group h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.skill-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(168,85,247,0.3);
+    border-radius: 12px;
+    padding: 12px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-box img {
+    height: 50px;
+    margin-bottom: 8px;
+}
+
+.skill-box span {
+    font-size: 0.9rem;
+    color: #d1d5db;
+}
+
+.skill-box:hover {
+    transform: translateY(-5px);
+    border-color: rgba(168,85,247,0.6);
+}
+
+/* GLASS CARDS */
+.creator-glass {
     background: rgba(255,255,255,0.03);
     border: 1px solid rgba(168,85,247,0.25);
     backdrop-filter: blur(14px);
     border-radius: 18px;
     padding: 35px;
-    transition: 0.4s ease;
+    margin-top: 30px;
+    transition: all 0.4s ease;
 }
 
-.creator-glass:hover,
-.creator-card:hover {
+.creator-glass:hover {
     border-color: rgba(168,85,247,0.6);
     box-shadow: 0 20px 60px rgba(168,85,247,0.2);
 }
 
-/* SKILLS GRID */
-
-.creator-skill-grid {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 40px;
-}
-
-.creator-logos {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 20px;
-    margin: 20px 0;
-}
-
-.creator-logos img {
-    height: 50px;
-    transition: 0.3s ease;
-}
-
-.creator-logos img:hover {
-    transform: scale(1.15);
-}
-
-.creator-extra {
+/* HYPERLINKS */
+a {
     color: #a855f7;
+    text-decoration: none;
     font-weight: 600;
+    transition: all 0.3s ease;
 }
 
-/* REVEAL */
+a:hover {
+    color: #f472b6;
+}
 
+/* REVEAL ANIMATION */
 .reveal {
     opacity: 0;
     transform: translateY(60px);
@@ -917,214 +966,39 @@ body.light-mode .persona-card:hover {
 }
 
 /* RESPONSIVE */
-
 @media (max-width: 900px) {
-
     .creator-container {
         flex-direction: column;
         text-align: center;
     }
 
-    .creator-skill-grid {
-        grid-template-columns: 1fr;
+    .creator-right {
+        width: 100%;
     }
 
-    .creator-image {
-        margin-top: 40px;
+    .skill-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 /* LIGHT MODE */
+body.light-mode .creator-subtitle,
+body.light-mode .creator-description p,
+body.light-mode .skill-box span {
+    color: #374151;
+}
 
-body.light-mode .creator-subtitle {
-    color: #6b7280;
+body.light-mode .highlight,
+body.light-mode a {
+    color: #a855f7;
 }
 
 body.light-mode .creator-glass,
-body.light-mode .creator-card {
+body.light-mode .skill-box {
     background: rgba(255,255,255,0.8);
     border: 1px solid #e5e7eb;
 }
 
-
-
-
-
-/* ===============================
-   VERTIKÁLNÍ DIVIDER U PODNADPISŮ
-================================= */
-.creator-description h2 {
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-    font-size: 1.4rem;
-    margin-top: 30px;
-    margin-bottom: 12px;
-}
-
-.creator-description .divider {
-    display: inline-block;
-    width: 8px;        /* tloušťka divideru */
-    height: 28px;      /* výška divideru */
-    background-color: #a855f7; /* magenta */
-    margin-right: 12px;
-}
-
-/* ===============================
-   HIGHLIGHT KLÍČOVÝCH SLOV
-================================= */
-.creator-description .highlight {
-    font-weight: 600;
-    color: #f472b6; /* kontrastní magenta pro light i dark mode */
-}
-
-/* ===============================
-   BOXÍKY PROGRAMOVACÍCH A ZNAČKOVACÍCH JAZYKŮ
-================================= */
-.creator-skills-side {
-    margin-top: 30px;
-}
-
-.creator-skills-side h3 {
-    margin-top: 25px;
-    margin-bottom: 15px;
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-.skill-box-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.skill-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 10px;
-    background: rgba(168,85,247,0.1);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-.skill-box img {
-    height: 50px;
-    margin-bottom: 6px;
-    transition: transform 0.3s ease;
-}
-
-.skill-box:hover img {
-    transform: scale(1.2);
-}
-
-.skill-box span {
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: inherit;
-}
-
-/* LIGHT MODE */
-body.light-mode .creator-description .highlight {
-    color: #a855f7;
-}
-
-body.light-mode .skill-box {
-    background: rgba(168,85,247,0.15);
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .creator-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .creator-image {
-        margin-top: 30px;
-    }
-
-    .skill-box-row {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-/* ===============================
-   BOXÍKY PRO SOFTWARE A OFFICE
-   (stejné jako jazykové, jen menší margin)
-================================= */
-.creator-skills-side h2,
-.creator-skills-side h3 {
-    margin-top: 25px;
-    margin-bottom: 15px;
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-.skill-box-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.skill-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 10px;
-    background: rgba(168,85,247,0.1);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-.skill-box img {
-    height: 50px;
-    margin-bottom: 6px;
-    transition: transform 0.3s ease;
-}
-
-.skill-box:hover img {
-    transform: scale(1.2);
-}
-
-.skill-box span {
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: inherit;
-}
-
-/* LIGHT MODE */
-body.light-mode .skill-box {
-    background: rgba(168,85,247,0.15);
-}
-
-/* ===============================
-   HYPERLINKY - magnetické, bez podtržení
-================================= */
-.creator-description a {
-    color: #a855f7;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.creator-description a:hover {
-    transform: translateY(-2px);
-    text-shadow: 0 0 6px rgba(168,85,247,0.5);
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-    .skill-box-row {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .creator-skills-side {
-        margin-top: 20px;
-    }
+body.light-mode .creator-image img {
+    box-shadow: 0 20px 60px rgba(99,102,241,0.2);
 }
