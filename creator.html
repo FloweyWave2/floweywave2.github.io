@@ -266,23 +266,41 @@ permalink: /about/creator.html
             <h2>Praxe</h2>
         </div>
 
-        <div class="creator-glass">
-            <h3>Léto 2021 — Technická podpora</h3>
+        <div class="education-timeline">
 
-            <p><strong>MŠ Bolonská</strong></p>
-            <ul>
-                <li>Tvorba prezentací</li>
-                <li>Photoshop</li>
-                <li>Obsluha interaktivních tabulí</li>
-            </ul>
+    <div class="timeline-line"></div>
 
-            <h3>Jaro 2022 — Technická podpora</h3>
-            
-            <p><strong>ZŠ Křimická</strong></p>
-            <ul>
-                <li>Asistování v ICT učebně</li>
-            </ul>
-        </div>
+    <!-- 2019 -->
+    <div class="timeline-item" data-target="edu1">
+        <span class="timeline-year">2019</span>
+        <div class="timeline-dot large"></div>
+    </div>
+
+    <!-- 2024 -->
+    <div class="timeline-item" data-target="edu2">
+        <span class="timeline-year">2024</span>
+        <div class="timeline-dot large"></div>
+    </div>
+
+</div>
+
+<!-- POPUP WINDOWS -->
+
+<div class="timeline-popup" id="edu1">
+    <h3>SŠ Automobilní a Informatiky</h3>
+    <p><strong>Obor:</strong> Informatika</p>
+    <p><strong>Období:</strong> 2019–2023</p>
+    <p><strong>Ukončení:</strong> Maturita ✅</p>
+</div>
+
+<div class="timeline-popup" id="edu2">
+    <h3>Česká Zemědělská Univerzita v Praze</h3>
+    <p><strong>Fakulta:</strong> Provozně ekonomická</p>
+    <p><strong>Obor:</strong> Informatika</p>
+    <p><strong>Období:</strong> 2024 – současnost</p>
+</div>
+
+        
     </section>
 
 </section>
@@ -311,4 +329,30 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
+</script>
+
+
+<script>
+const timelineItems = document.querySelectorAll(".timeline-item");
+const popups = document.querySelectorAll(".timeline-popup");
+
+function closeAllPopups() {
+    popups.forEach(p => p.classList.remove("active"));
+}
+
+timelineItems.forEach(item => {
+    item.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const targetId = item.getAttribute("data-target");
+
+        closeAllPopups();
+
+        const popup = document.getElementById(targetId);
+        popup.classList.add("active");
+    });
+});
+
+document.addEventListener("click", () => {
+    closeAllPopups();
+});
 </script>
