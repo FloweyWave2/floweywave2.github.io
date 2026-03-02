@@ -974,3 +974,97 @@ body.light-mode .skill-box {
     background: rgba(255,255,255,0.8);
     border: 1px solid #e5e7eb;
 }
+
+
+
+
+
+
+
+
+/* ============================= */
+/* TIMELINE */
+/* ============================= */
+
+.education-timeline {
+    position: relative;
+    margin: 80px auto;
+    width: 80%;
+    height: 120px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: 90%;
+    height: 4px;
+    background: linear-gradient(90deg, magenta, purple);
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.timeline-item {
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.timeline-year {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: bold;
+    color: magenta;
+    font-size: 1.1rem;
+}
+
+.timeline-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: magenta;
+    transition: all 0.3s ease;
+}
+
+.timeline-dot.large {
+    width: 28px;
+    height: 28px;
+}
+
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.3);
+    background: #6a00ff; /* raw purple */
+}
+
+/* ============================= */
+/* POPUP WINDOW */
+/* ============================= */
+
+.timeline-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: rgba(20, 0, 30, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 30px 40px;
+    border-radius: 16px;
+    width: 400px;
+    max-width: 90%;
+    color: white;
+    box-shadow: 0 0 40px rgba(255, 0, 255, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.timeline-popup.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+}
