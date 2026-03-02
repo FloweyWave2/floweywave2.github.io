@@ -813,8 +813,11 @@ body.light-mode .persona-card:hover {
 }
 
 .creator-text {
-    flex: 1;
+    flex: 1 1 60%;
     min-width: 300px;
+}
+.creator-right {
+    flex: 0 0 360px;
 }
 
 .creator-text-full {
