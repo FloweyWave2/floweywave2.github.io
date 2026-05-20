@@ -1030,7 +1030,7 @@ body.light-mode .skill-box {
 }
 
 /* ================================
-   ICON BUTTON
+   ICON BUTTON (NO BORDERS)
 ================================ */
 
 .persona-icon {
@@ -1039,6 +1039,7 @@ body.light-mode .skill-box {
 
     padding: 0;
     border: none;
+    outline: none;
     background: transparent;
 
     display: flex;
@@ -1048,13 +1049,11 @@ body.light-mode .skill-box {
     position: relative;
     cursor: pointer;
 
-    transition:
-        transform 0.25s ease,
-        filter 0.25s ease;
+    transition: transform 0.25s ease;
 }
 
 /* ================================
-   ICON IMAGE
+   ICON IMAGE (WHITE BASE)
 ================================ */
 
 .persona-icon img {
@@ -1068,9 +1067,8 @@ body.light-mode .skill-box {
         transform 0.25s ease,
         filter 0.25s ease;
 
-    filter:
-        grayscale(100%)
-        brightness(0.8);
+    /* WHITE DEFAULT */
+    filter: brightness(0) invert(1) opacity(0.85);
 }
 
 /* ================================
@@ -1084,12 +1082,18 @@ body.light-mode .skill-box {
 .persona-icon:hover img {
     transform: scale(1.08);
 
+    /* MAGENTA HOVER */
     filter:
-        grayscale(0%)
-        brightness(1)
-        drop-shadow(0 0 10px rgba(217,70,239,0.55));
+        brightness(0)
+        saturate(100%)
+        invert(19%)
+        sepia(89%)
+        saturate(6000%)
+        hue-rotate(280deg)
+        brightness(1.1);
 }
 
+/* underline glow */
 .persona-icon:hover::after {
     content: "";
 
@@ -1104,9 +1108,7 @@ body.light-mode .skill-box {
 
     background: #d946ef;
 
-    box-shadow:
-        0 0 8px rgba(217,70,239,0.8),
-        0 0 18px rgba(217,70,239,0.5);
+    box-shadow: 0 0 12px rgba(217,70,239,0.8);
 }
 
 /* ================================
@@ -1120,12 +1122,18 @@ body.light-mode .skill-box {
 .persona-icon.active img {
     transform: scale(1.08);
 
+    /* MAGENTA ACTIVE */
     filter:
-        grayscale(0%)
-        brightness(1)
-        drop-shadow(0 0 12px rgba(217,70,239,0.65));
+        brightness(0)
+        saturate(100%)
+        invert(19%)
+        sepia(89%)
+        saturate(6000%)
+        hue-rotate(280deg)
+        brightness(1.2);
 }
 
+/* underline glow (stronger) */
 .persona-icon.active::after {
     content: "";
 
