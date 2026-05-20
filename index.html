@@ -34,7 +34,49 @@ title: Domů
         </div>
 
         <div class="hero-image">
-            <img src="/images/me2026.png" alt="Michal profile photo">
+        
+            <img id="persona-main-image" src="/images/furry.png" alt="Persona image">
+        
+            <div class="persona-selector">
+        
+                <div class="persona-icons">
+        
+                    <button class="persona-icon active"
+                        data-img="/images/profile_furry.png"
+                        data-text="Internet mě zná jako cute vlčíka">
+                        🐺
+                    </button>
+        
+                    <button class="persona-icon"
+                        data-img="/images/me2026.jpg"
+                        data-text="Rodina mě zná jako Joffreyho z GoT">
+                        🙂
+                    </button>
+        
+                    <button class="persona-icon"
+                        data-img="/images/profile_wave.png"
+                        data-text="Historie mě zná jako zelenou vlnu">
+                        🌊
+                    </button>
+        
+                    <button class="persona-icon"
+                        data-img="/images/profile.png"
+                        data-text="Internet mě zná jako sexy asiatku">
+                        🎭
+                    </button>
+        
+                </div>
+        
+                <p id="persona-text" class="persona-text">
+                    Internet mě zná jako cute vlčíka
+                </p>
+        
+                <p class="persona-hint">
+                    Pro Tip: Klikněte na nějakou ikonku ^^
+                </p>
+        
+            </div>
+        
         </div>
     </div>
 </section>
@@ -144,4 +186,29 @@ function revealOnScroll() {
 
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
+
+
+    
+const icons = document.querySelectorAll(".persona-icon");
+const mainImage = document.getElementById("persona-main-image");
+const personaText = document.getElementById("persona-text");
+
+icons.forEach(icon => {
+    icon.addEventListener("click", () => {
+
+        // remove active state
+        icons.forEach(i => i.classList.remove("active"));
+
+        // set active
+        icon.classList.add("active");
+
+        // swap image
+        const newImg = icon.getAttribute("data-img");
+        mainImage.src = newImg;
+
+        // swap text
+        const newText = icon.getAttribute("data-text");
+        personaText.textContent = newText;
+    });
+});
 </script>
