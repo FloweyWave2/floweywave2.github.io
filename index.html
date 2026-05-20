@@ -193,22 +193,39 @@ const icons = document.querySelectorAll(".persona-icon");
 const mainImage = document.getElementById("persona-main-image");
 const personaText = document.getElementById("persona-text");
 
+function setPersona(icon) {
+
+    // remove active state
+    icons.forEach(i => i.classList.remove("active"));
+
+    // activate selected
+    icon.classList.add("active");
+
+    // get data
+    const newImg = icon.getAttribute("data-img");
+    const newText = icon.getAttribute("data-text");
+
+    // smooth fade
+    mainImage.style.opacity = "0";
+
+    setTimeout(() => {
+        mainImage.src = newImg;
+        personaText.textContent = newText;
+        mainImage.style.opacity = "1";
+    }, 120);
+}
+
+// click events
 icons.forEach(icon => {
     icon.addEventListener("click", () => {
-
-        // remove active state
-        icons.forEach(i => i.classList.remove("active"));
-
-        // set active
-        icon.classList.add("active");
-
-        // swap image
-        const newImg = icon.getAttribute("data-img");
-        mainImage.src = newImg;
-
-        // swap text
-        const newText = icon.getAttribute("data-text");
-        personaText.textContent = newText;
+        setPersona(icon);
     });
 });
+
+// INITIALIZE DEFAULT ACTIVE PERSONA
+const defaultPersona = document.querySelector(".persona-icon.active");
+
+if (defaultPersona) {
+    setPersona(defaultPersona);
+}
 </script>
