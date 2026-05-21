@@ -1291,3 +1291,540 @@ body.light-mode .skill-box {
     color: #9ca3af;
     line-height: 1.5;
 }
+
+
+
+
+
+
+
+/* =========================================================
+   PARADOX PROJECT PAGE
+========================================================= */
+
+.paradox-hero {
+    position: relative;
+    min-height: 90vh;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.paradox-background-glow {
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    background:
+        radial-gradient(circle,
+        rgba(168,85,247,0.25) 0%,
+        rgba(99,102,241,0.18) 35%,
+        transparent 70%);
+
+    top: -150px;
+    right: -150px;
+
+    filter: blur(40px);
+
+    pointer-events: none;
+}
+
+.paradox-hero-content {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    gap: 60px;
+    align-items: center;
+}
+
+.paradox-label {
+    display: inline-block;
+
+    margin-bottom: 24px;
+
+    padding: 8px 18px;
+
+    border-radius: 999px;
+
+    background: rgba(168,85,247,0.12);
+    border: 1px solid rgba(168,85,247,0.3);
+
+    color: #d8b4fe;
+
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.paradox-hero-text h1 {
+    font-size: clamp(4rem, 10vw, 7rem);
+
+    line-height: 0.9;
+
+    margin: 0;
+
+    font-weight: 900;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #d8b4fe 40%,
+            #818cf8 100%
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.paradox-subtitle {
+    margin-top: 30px;
+
+    font-size: 1.25rem;
+    line-height: 1.7;
+
+    color: #cbd5e1;
+
+    max-width: 650px;
+}
+
+.paradox-buttons {
+    margin-top: 40px;
+
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.paradox-hero-image {
+    position: relative;
+}
+
+.paradox-hero-image img {
+    width: 100%;
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(168,85,247,0.3);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.5),
+        0 0 80px rgba(168,85,247,0.2);
+
+    transform: perspective(1200px) rotateY(-8deg) rotateX(3deg);
+
+    transition: all 0.5s ease;
+}
+
+.paradox-hero-image img:hover {
+    transform:
+        perspective(1200px)
+        rotateY(-3deg)
+        rotateX(1deg)
+        scale(1.02);
+}
+
+/* =========================================================
+   INFO GRID
+========================================================= */
+
+.paradox-info-grid {
+    margin-top: 20px;
+    margin-bottom: 140px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 24px;
+}
+
+.info-card {
+    padding: 35px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(168,85,247,0.2);
+
+    backdrop-filter: blur(14px);
+
+    text-align: center;
+
+    transition: 0.4s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(168,85,247,0.6);
+
+    box-shadow: 0 20px 50px rgba(168,85,247,0.2);
+}
+
+.info-number {
+    display: block;
+
+    font-size: 2.4rem;
+    font-weight: 900;
+
+    background: linear-gradient(90deg, #a855f7, #6366f1);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.info-label {
+    color: #9ca3af;
+}
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.paradox-section {
+    margin-bottom: 140px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    margin-bottom: 50px;
+}
+
+.section-line {
+    width: 60px;
+    height: 2px;
+
+    background: linear-gradient(90deg, #a855f7, transparent);
+}
+
+.section-heading h2 {
+    font-size: 2.4rem;
+    margin: 0;
+}
+
+/* =========================================================
+   TWO COLUMN
+========================================================= */
+
+.paradox-two-column {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.paradox-text-block p {
+    line-height: 1.9;
+    color: #d1d5db;
+
+    margin-bottom: 24px;
+
+    font-size: 1.05rem;
+}
+
+.paradox-highlight {
+    color: #d946ef;
+    font-weight: 700;
+}
+
+.paradox-side-image img {
+    width: 100%;
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(168,85,247,0.3);
+
+    box-shadow: 0 20px 60px rgba(168,85,247,0.18);
+}
+
+/* =========================================================
+   BANNER
+========================================================= */
+
+.paradox-banner {
+    position: relative;
+
+    margin-bottom: 140px;
+
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+.paradox-banner img {
+    width: 100%;
+    height: 500px;
+
+    object-fit: cover;
+    display: block;
+}
+
+.paradox-banner-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(5,5,10,0.9),
+            rgba(5,5,10,0.2)
+        );
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 60px;
+}
+
+.paradox-banner-overlay h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+
+    max-width: 800px;
+    line-height: 1.1;
+}
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+.feature-card {
+    padding: 40px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.03);
+
+    border: 1px solid rgba(168,85,247,0.2);
+
+    transition: 0.4s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(168,85,247,0.6);
+
+    box-shadow: 0 20px 50px rgba(168,85,247,0.18);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    margin-bottom: 14px;
+    font-size: 1.3rem;
+}
+
+.feature-card p {
+    color: #9ca3af;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.gallery-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    grid-auto-rows: 250px;
+
+    gap: 18px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 22px;
+
+    position: relative;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-item.large {
+    grid-row: span 2;
+}
+
+.gallery-item.wide {
+    grid-column: span 2;
+}
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.development-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.timeline-card {
+    padding: 35px;
+
+    border-left: 3px solid #a855f7;
+
+    background: rgba(255,255,255,0.03);
+
+    border-radius: 0 20px 20px 0;
+
+    transition: 0.4s ease;
+}
+
+.timeline-card:hover {
+    transform: translateX(10px);
+
+    background: rgba(255,255,255,0.05);
+}
+
+.timeline-year {
+    color: #a855f7;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.timeline-card h3 {
+    margin-top: 10px;
+}
+
+/* =========================================================
+   ENDING
+========================================================= */
+
+.paradox-ending {
+    margin-bottom: 120px;
+}
+
+.paradox-ending-box {
+    text-align: center;
+
+    padding: 80px 40px;
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(168,85,247,0.12),
+            rgba(99,102,241,0.08)
+        );
+
+    border: 1px solid rgba(168,85,247,0.25);
+}
+
+.paradox-ending-box h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.paradox-ending-box p {
+    max-width: 800px;
+    margin: 0 auto 40px;
+
+    color: #cbd5e1;
+
+    line-height: 1.8;
+}
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .paradox-hero-content,
+    .paradox-two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .paradox-hero {
+        padding-top: 60px;
+    }
+
+    .paradox-hero-image {
+        order: -1;
+    }
+
+    .paradox-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 750px) {
+
+    .feature-grid,
+    .gallery-grid,
+    .paradox-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-auto-rows: 220px;
+    }
+
+    .gallery-item.large,
+    .gallery-item.wide {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .paradox-banner img {
+        height: 350px;
+    }
+
+    .paradox-banner-overlay {
+        padding: 30px;
+    }
+
+    .paradox-ending-box h2 {
+        font-size: 2.2rem;
+    }
+
+}
