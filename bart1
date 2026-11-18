@@ -1,0 +1,522 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Who Are You?</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #080b10;
+    color: white;
+    font-family: Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    width: min(1100px, 96vw);
+    text-align: center;
+}
+
+h1 {
+    font-size: clamp(25px, 4vw, 42px);
+    letter-spacing: 5px;
+    font-weight: normal;
+    margin-bottom: 65px;
+    opacity: 0;
+    animation: titleAppear 2s forwards;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(15px, 5vw, 65px);
+    width: 100%;
+}
+
+.slot {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    width: 100%;
+    max-width: 270px;
+    opacity: 0;
+    transform: translateY(35px) scale(.85);
+    pointer-events: none;
+    position: relative;
+}
+
+.avatar.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    animation: reveal .9s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+.avatar img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border: 2px solid #555;
+    border-radius: 5px;
+    box-shadow: 0 0 25px #000;
+    transition: filter .2s, box-shadow .2s;
+}
+
+.avatar:hover img {
+    filter: brightness(1.1);
+}
+
+.avatar p {
+    font-size: clamp(13px, 2vw, 18px);
+    letter-spacing: 2px;
+    margin-top: 15px;
+}
+
+.avatar.green img {
+    animation: greenFlash .75s ease-in-out;
+}
+
+#startScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: #080b10;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#startScreen button {
+    background: transparent;
+    color: white;
+    border: 1px solid #aaa;
+    padding: 15px 30px;
+    font-family: Georgia, serif;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#startScreen button:hover {
+    background: #263c32;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+        transform: translateY(35px) scale(.85);
+        filter: blur(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes greenFlash {
+    0%, 100% {
+        filter: none;
+        box-shadow: 0 0 25px #000;
+    }
+    25%, 65% {
+        filter: sepia(1) saturate(5) hue-rotate(75deg)
+                brightness(1.3);
+        box-shadow: 0 0 45px #00ff55;
+    }
+}
+
+@keyframes titleAppear {
+    to { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .gallery {
+        gap: 8px;
+    }
+
+    .avatar p {
+        letter-spacing: 0;
+        font-size: 11px;
+    }
+
+    h1 {
+        margin-bottom: 35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="startScreen">
+    <h2>WHO ARE YOU?</h2>
+    <p>Something is waiting for you...</p>
+    <button id="startButton">ENTER</button>
+</div>
+
+<main class="container">
+
+    <h1>THE THREE BARTS</h1>
+
+    <div class="gallery">
+
+        <div class="slot" id="slot-left">
+            <div class="avatar" id="crouch">
+                <img src="images/barty-skrk.jpg" alt="Barty Skrk Jr.">
+                <p>BARTY CROUCH JR.</p>
+            </div>
+        </div>
+
+        <div class="slot" id="slot-middle">
+            <div class="avatar" id="simpson">
+                <img src="images/bart-simpson.png" alt="Bart Simpson">
+                <p>BART SIMPSON</p>
+            </div>
+        </div>
+
+        <div class="slot" id="slot-right">
+            <div class="avatar" id="friend">
+                <a href="next.html" id="friendLink">
+                    <img src="images/bart-friend.jpg" alt="Your friend">
+                </a>
+                <p>THE REAL BART</p>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<script>
+/* ==========================================
+   AUDIO
+========================================== */
+
+const sounds = {
+    intro: new Audio("audio/whoareyou.mp3"),
+    crouch: new Audio("audio/revealbartyskrk.mp3"),
+    simpson: new Audio("audio/revealbartsimpson.mp3"),
+    friend: new Audio("audio/revealbartregular.mp3"),
+    teleport: new Audio("audio/teleportace.mp3"),
+    aycaramba: new Audio("audio/aykaramba.mp3")
+};
+
+function playSound(name) {
+    const sound = sounds[name];
+
+    if (!sound) return;
+
+    // Separate playback instance prevents cutting off
+    // a sound that is already playing.
+    const instance = sound.cloneNode();
+
+    instance.volume = 1;
+
+    instance.play().catch(() => {});
+}
+
+/* ==========================================
+   ELEMENTS
+========================================== */
+
+const crouch = document.getElementById("crouch");
+const simpson = document.getElementById("simpson");
+const friend = document.getElementById("friend");
+
+const leftSlot = document.getElementById("slot-left");
+const middleSlot = document.getElementById("slot-middle");
+const rightSlot = document.getElementById("slot-right");
+
+const startScreen = document.getElementById("startScreen");
+const startButton = document.getElementById("startButton");
+
+let started = false;
+let revealed = false;
+let teleporting = false;
+
+let pointerX = -10000;
+let pointerY = -10000;
+
+let lastTeleport = 0;
+let lastSimpsonSound = 0;
+
+/* ==========================================
+   INTRO AND REVEAL SEQUENCE
+========================================== */
+
+async function startExperience() {
+
+    if (started) return;
+    started = true;
+
+    startScreen.style.display = "none";
+
+    // First sound must play before the reveal sequence.
+    try {
+        const intro = sounds.intro.cloneNode();
+        await intro.play();
+    } catch (error) {
+        console.warn("Intro audio could not play.", error);
+    }
+
+    // Three-second delay after intro starts.
+    setTimeout(() => {
+        revealSequence();
+    }, 3000);
+}
+
+startButton.addEventListener("click", startExperience);
+
+async function initialize() {
+
+    // Attempt autoplay on page load.
+    try {
+        const intro = sounds.intro.cloneNode();
+        await intro.play();
+
+        if (!started) {
+            started = true;
+
+            setTimeout(revealSequence, 3000);
+        }
+    } catch (error) {
+
+        // Browser blocked autoplay.
+        startScreen.style.display = "flex";
+    }
+}
+
+async function revealSequence() {
+
+    if (revealed) return;
+    revealed = true;
+
+    const sequence = [
+        { element: crouch, sound: "crouch" },
+        { element: simpson, sound: "simpson" },
+        { element: friend, sound: "friend" }
+    ];
+
+    for (const item of sequence) {
+
+        item.element.classList.add("revealed");
+
+        playSound(item.sound);
+
+        await new Promise(resolve =>
+            setTimeout(resolve, 2500)
+        );
+    }
+}
+
+/* ==========================================
+   TELEPORTATION SYSTEM
+========================================== */
+
+// Swap two characters by physically moving their
+// elements between their respective containers.
+
+function swapCharacters() {
+
+    if (teleporting) return;
+
+    teleporting = true;
+
+    const crouchParent = crouch.parentElement;
+    const friendParent = friend.parentElement;
+
+    if (!crouchParent || !friendParent) {
+        teleporting = false;
+        return;
+    }
+
+    // Swap their positions.
+    const placeholder = document.createElement("div");
+
+    crouchParent.insertBefore(placeholder, crouch);
+    friendParent.insertBefore(crouch, friend);
+    placeholder.parentNode.insertBefore(friend, placeholder);
+
+    placeholder.remove();
+
+    // Green magical flash.
+    crouch.classList.remove("green");
+    friend.classList.remove("green");
+
+    // Force animation restart.
+    void crouch.offsetWidth;
+    void friend.offsetWidth;
+
+    crouch.classList.add("green");
+    friend.classList.add("green");
+
+    playSound("teleport");
+
+    setTimeout(() => {
+        crouch.classList.remove("green");
+        friend.classList.remove("green");
+    }, 800);
+
+    lastTeleport = performance.now();
+
+    // Short anti-repeat cooldown.
+    setTimeout(() => {
+        teleporting = false;
+    }, 400);
+}
+
+/* ==========================================
+   HIGH-PRIORITY CURSOR DETECTION
+========================================== */
+
+// Protection radius around the friend's avatar.
+// Increase this to make the challenge harder.
+
+const PROTECTION_RADIUS = 100;
+
+// Distance test against the friend's expanded rectangle.
+function isCursorNearFriend(x, y) {
+
+    if (!friend.classList.contains("revealed")) {
+        return false;
+    }
+
+    const rect = friend.getBoundingClientRect();
+
+    const left = rect.left - PROTECTION_RADIUS;
+    const right = rect.right + PROTECTION_RADIUS;
+    const top = rect.top - PROTECTION_RADIUS;
+    const bottom = rect.bottom + PROTECTION_RADIUS;
+
+    return (
+        x >= left &&
+        x <= right &&
+        y >= top &&
+        y <= bottom
+    );
+}
+
+// Main protection function.
+function checkProtection() {
+
+    if (!revealed || teleporting) return;
+
+    // Wait until the friend has actually been revealed.
+    if (!friend.classList.contains("revealed")) return;
+
+    if (performance.now() - lastTeleport < 450) return;
+
+    if (isCursorNearFriend(pointerX, pointerY)) {
+        swapCharacters();
+    }
+}
+
+/* ==========================================
+   MULTIPLE INPUT DETECTION LAYERS
+========================================== */
+
+// Layer 1: Normal pointer movement.
+document.addEventListener("pointermove", event => {
+
+    if (event.pointerType !== "mouse") return;
+
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+
+    checkProtection();
+
+}, { capture: true, passive: true });
+
+// Layer 2: Pointer entering any element.
+document.addEventListener("pointerover", event => {
+
+    if (event.pointerType !== "mouse") return;
+
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+
+    checkProtection();
+
+}, { capture: true, passive: true });
+
+// Layer 3: Mouse movement.
+document.addEventListener("mousemove", event => {
+
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+
+    checkProtection();
+
+}, { capture: true, passive: true });
+
+// Layer 4: Continuous position checking.
+// This catches situations where the mouse stops moving
+// while the page layout or animation changes.
+
+function protectionLoop() {
+
+    checkProtection();
+
+    requestAnimationFrame(protectionLoop);
+}
+
+requestAnimationFrame(protectionLoop);
+
+// Layer 5: Check after browser regains visibility.
+document.addEventListener("visibilitychange", () => {
+
+    if (!document.hidden) {
+        checkProtection();
+    }
+
+});
+
+// Layer 6: Check after window resizing.
+window.addEventListener("resize", checkProtection);
+
+/* ==========================================
+   BART SIMPSON SOUND
+========================================== */
+
+simpson.addEventListener("pointerenter", event => {
+
+    if (event.pointerType === "touch") return;
+
+    const now = performance.now();
+
+    if (now - lastSimpsonSound < 500) return;
+
+    lastSimpsonSound = now;
+
+    playSound("aycaramba");
+});
+
+/* ==========================================
+   START
+========================================== */
+
+initialize();
+
+</script>
+
+</body>
+</html>
